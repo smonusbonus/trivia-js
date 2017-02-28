@@ -69,8 +69,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h1 {
+  font-size: 3rem;
+}
+
 h1, h2 {
-  font-weight: normal;
+  font-weight: 600;
 }
 
 button {
@@ -82,6 +86,7 @@ button {
   outline: 0;
   border-radius: 0.5rem;
   margin: 0 0.5rem;
+  text-transform: uppercase;
 }
 
 button:hover {

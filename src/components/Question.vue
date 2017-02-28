@@ -44,6 +44,7 @@ button {
   outline: 0;
   border-radius: 0.5rem;
   margin: 0 0.5rem;
+  text-transform: uppercase;
 }
 
 button:hover {
