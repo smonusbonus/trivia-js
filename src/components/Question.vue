@@ -13,16 +13,18 @@
 <script>
 export default {
   name: 'question',
-  props: ['question'],
+  props: ['question', 'game'],
   data() {
     return {
       checkCorrect: (answer) => {
         const indexSolution = this.question.solution;
         const indexGivenAnswer = this.question.answers.indexOf(answer);
         if (indexSolution === indexGivenAnswer) {
-          alert('This is correct!');
+          this.game.totalScore += 1;
+          this.game.correctAnswers += 1;
         } else {
-          alert('This is wrong!');
+          this.game.totalScore -= 1;
+          this.game.falseAnswers += 1;
         }
       },
     };

@@ -4,7 +4,12 @@
     <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer!</p>
     <button type="button" v-on:click="showQuestions">Try me!</button>
     <div class="questions" v-if="tryMe">
-      <question class="question" v-for="question in questions" v-bind:question="question"></question>
+      <strong>{{ game.totalScore }}</strong>
+      <question 
+        class="question" 
+        v-for="question in questions" 
+        :question="question" 
+        :game="game"></question>
     </div>
   </div>
 </template>
@@ -20,6 +25,11 @@ export default {
   data() {
     return {
       message: 'Welcome to JS Trivia!',
+      game: {
+        totalScore: 0,
+        correctAnswers: 0,
+        falseAnswers: 0,
+      },
       tryMe: false,
       showQuestions: () => {
         this.tryMe = true;
