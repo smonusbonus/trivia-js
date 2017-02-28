@@ -24,20 +24,18 @@ export default {
       showQuestions: () => {
         this.tryMe = true;
       },
-      checkCorrect: (answer, index) => {
-        const indexSolution = this.questions[index].solution;
-        const indexGivenAnswer = this.questions[index].answers.indexOf(answer);
-        if (indexSolution === indexGivenAnswer) {
-          alert('This is correct!');
-        } else {
-          alert('This is wrong!');
-        }
-      },
-      questions: [{
-        question: 'What will typeof null return?',
-        answers: ['object', 'null', 'undefined', 'number'],
-        solution: 0,
-      }],
+      questions: [
+        {
+          question: 'What will typeof null return?',
+          answers: ['object', 'null', 'undefined', 'number'],
+          solution: 0,
+        },
+        {
+          question: 'Which Array method changes the Array itself?',
+          answers: ['Array.prototype.splice()', 'Array.prototype.slice()'],
+          solution: 0,
+        },
+      ],
     };
   },
 };
