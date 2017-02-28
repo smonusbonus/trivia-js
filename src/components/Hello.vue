@@ -4,22 +4,19 @@
     <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer!</p>
     <button type="button" v-on:click="showQuestions">Try me!</button>
     <div class="questions" v-if="tryMe">
-      <div class="question" v-for="(question, index) in questions">
-        <h2>{{ question.question }}</h2>
-        <div>
-          <p>Answers:</p>
-          <button type="button" v-for="answer in question.answers" v-on:click="checkCorrect(answer, index)">
-            {{ answer }}
-          </button>
-        </div>
-      </div>
+      <question class="question" v-for="question in questions" v-bind:question="question"></question>
     </div>
   </div>
 </template>
 
 <script>
+import Question from './Question';
+
 export default {
   name: 'hello',
+  components: {
+    Question,
+  },
   data() {
     return {
       message: 'Welcome to JS Trivia!',
@@ -50,20 +47,6 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 
 button {
