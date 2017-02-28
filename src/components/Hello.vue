@@ -4,11 +4,13 @@
     <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer!</p>
     <button type="button" v-on:click="showQuestions">Try me!</button>
     <div class="questions" v-if="tryMe">
-      <div class="question" v-for="question in questions">
+      <div class="question" v-for="(question, index) in questions">
         <h2>{{ question.question }}</h2>
         <div>
           <p>Answers:</p>
-          <button type="button" v-for="answer in question.answers">{{ answer }}</button>
+          <button type="button" v-for="answer in question.answers" v-on:click="checkCorrect(answer, index)">
+            {{ answer }}
+          </button>
         </div>
       </div>
     </div>
@@ -24,6 +26,15 @@ export default {
       tryMe: false,
       showQuestions: () => {
         this.tryMe = true;
+      },
+      checkCorrect: (answer, index) => {
+        const indexSolution = this.questions[index].solution;
+        const indexGivenAnswer = this.questions[index].answers.indexOf(answer);
+        if (indexSolution === indexGivenAnswer) {
+          alert('This is correct!');
+        } else {
+          alert('This is wrong!');
+        }
       },
       questions: [{
         question: 'What will typeof null return?',
