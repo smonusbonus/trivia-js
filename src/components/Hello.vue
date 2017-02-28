@@ -1,16 +1,15 @@
 <template>
   <div class="hello">
-    <div class="welcome-message" v-if="!tryMe">
+    <div class="welcome-message" v-if="!game.hasStarted">
       <h1>Welcome to JS Trivia!</h1>
       <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer!</p>
-      <button type="button" v-on:click="tryMe = true">Try me!</button>
+      <button type="button" v-on:click="game.hasStarted = true">Try me!</button>
     </div>  
-    <div class="questions" v-if="tryMe">
+    <div class="questions" v-if="game.hasStarted">
       <strong>Total score: {{ game.totalScore }}</strong>
       <question 
         class="question" 
-        v-for="question in questions" 
-        :question="question" 
+        :question="questions[game.currentQuestion]" 
         :game="game"></question>
     </div>
   </div>
@@ -26,11 +25,12 @@ export default {
   },
   data() {
     return {
-      tryMe: false,
       game: {
         totalScore: 0,
         correctAnswers: 0,
         falseAnswers: 0,
+        hasStarted: false,
+        currentQuestion: 0,
       },
       questions: [
         {
