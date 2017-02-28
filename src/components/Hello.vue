@@ -26,11 +26,20 @@ export default {
   data() {
     return {
       game: {
-        totalScore: 0,
         correctAnswers: 0,
+        currentQuestion: 0,
         falseAnswers: 0,
         hasStarted: false,
-        currentQuestion: 0,
+        gameOver: false,
+        totalScore: 0,
+        maxQuestions: 2,
+        nextQuestion() {
+          if ((this.maxQuestions - 1) > this.currentQuestion) {
+            this.currentQuestion += 1;
+          } else {
+            this.gameOver = true;
+          }
+        },
       },
       questions: [
         {

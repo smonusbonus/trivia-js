@@ -22,11 +22,10 @@ export default {
         if (indexSolution === indexGivenAnswer) {
           this.game.totalScore += 1;
           this.game.correctAnswers += 1;
-          this.game.currentQuestion += 1;
+          this.game.nextQuestion();
         } else {
-          this.game.totalScore -= 1;
           this.game.falseAnswers += 1;
-          this.game.currentQuestion += 1;
+          this.game.nextQuestion();
         }
       },
     };
