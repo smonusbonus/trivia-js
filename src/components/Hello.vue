@@ -2,15 +2,24 @@
   <div class="hello">
     <div class="welcome-message" v-if="!game.hasStarted">
       <h1>Welcome to JS Trivia!</h1>
-      <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer!</p>
+      <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer.</p>
       <button type="button" v-on:click="game.hasStarted = true">Try me!</button>
     </div>  
-    <div class="questions" v-if="game.hasStarted">
+    <div class="questions" v-if="game.hasStarted && !game.gameOver">
       <strong>Total score: {{ game.totalScore }}</strong>
       <question 
         class="question" 
         :question="questions[game.currentQuestion]" 
         :game="game"></question>
+    </div>
+    <div class="result" v-if="game.gameOver">
+      <h1>Well done!</h1>
+      <p>Thanks for participating. Here is your score.</p>
+      <ul>
+        <li>Total score: <strong>{{ game.totalScore }}</strong></li>
+        <li>No. of correct answers: <strong>{{ game.correctAnswers }}</strong></li>
+        <li>No. of false answers: <strong>{{ game.falseAnswers }}</strong></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -78,5 +87,10 @@ button {
 button:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 </style>
