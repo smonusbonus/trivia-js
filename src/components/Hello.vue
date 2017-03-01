@@ -42,7 +42,7 @@ export default {
         hasStarted: false,
         gameOver: false,
         totalScore: 0,
-        maxQuestions: 2,
+        maxQuestions: 4,
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,
@@ -87,6 +87,20 @@ export default {
         {
           question: 'Which Array method changes the Array itself?',
           answers: ['Array.prototype.splice()', 'Array.prototype.slice()'],
+          solution: 0,
+        },
+        {
+          question: 'Which operator is the only JavaScript operator that takes three operands?',
+          answers: ['The conditional (ternary) operator', 'The assignment operator', 'Logical OR (||)'],
+          solution: 0,
+        },
+        {
+          question: 'What does ECMA in ECMAScript stand for?',
+          answers: [
+            'European Computer Manufacturers Association',
+            'Electronic Computer Manufacturers Association',
+            'Elitist Cheese Manufacturers Association',
+          ],
           solution: 0,
         },
       ],
