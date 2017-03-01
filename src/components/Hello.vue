@@ -45,18 +45,24 @@ export default {
         maxQuestions: 2,
         answerTime: 10000,
         timeLeft: 0,
+        currentInterval: null,
         startGame() {
           this.hasStarted = true;
           this.currentQuestion = 0;
           this.restartCounter();
         },
+        stopInterval() {
+          clearInterval(this.currentInterval);
+        },
         restartCounter() {
           this.timeLeft = this.answerTime;
-          const interval = setInterval(() => {
+
+          this.stopInterval();
+          this.currentInterval = setInterval(() => {
             if (this.timeLeft !== 0) {
               this.timeLeft -= 1000;
             } else {
-              clearInterval(interval);
+              this.stopInterval();
               this.falseAnswers += 1;
               this.nextQuestion();
             }
@@ -67,6 +73,7 @@ export default {
             this.currentQuestion += 1;
             this.restartCounter();
           } else {
+            this.stopInterval();
             this.gameOver = true;
           }
         },
