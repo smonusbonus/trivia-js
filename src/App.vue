@@ -20,19 +20,25 @@ export default {
 
 html {
   /* Use font-size as reference point for rem units */
-  font-size: 18px; 
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
 }
 
 #app {
   font-family: 'Overpass Mono', Helvetica, Arial, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, li {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 p {
   font-size: 1rem;
+  text-align: center;
 }
 </style>

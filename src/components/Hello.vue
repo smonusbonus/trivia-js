@@ -1,13 +1,16 @@
 <template>
   <div class="hello">
+    <header>
+      <span class="score" v-if="game.hasStarted">Total score: {{ game.totalScore }}</span>
+      <span class="logo">trivia.js</span>
+      <span class="time" v-if="game.hasStarted">Time left: <strong>{{ game.timeLeft / 1000 }}</strong></span>
+    </header>
     <div class="welcome-message" v-if="!game.hasStarted">
       <h1>Welcome to JS Trivia!</h1>
       <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer.</p>
       <button type="button" v-on:click="game.startGame()">Try me!</button>
     </div>
-    <div class="questions" v-if="game.hasStarted && !game.gameOver">
-      <strong>Total score: {{ game.totalScore }}</strong>
-      <p>Time left: {{ game.timeLeft / 1000 }}</p>
+    <div class="game" v-if="game.hasStarted && !game.gameOver">
       <question
         class="question"
         :question="questions[game.currentQuestion]"
@@ -117,6 +120,34 @@ h1 {
 
 h1, h2 {
   font-weight: 600;
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+header {
+  background-color: #42b983;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+header span {
+  flex-grow: 1;
+  flex-basis: 33.33%;
+}
+
+.logo {
+  font-size: 1.6rem;
+  line-height: 1.3rem;
+  text-shadow: 2px 2px 0 #3d725a;
+  text-align: center;
+}
+
+.time {
+  text-align: right;
 }
 
 button {
