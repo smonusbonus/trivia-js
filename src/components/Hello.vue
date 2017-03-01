@@ -3,13 +3,14 @@
     <div class="welcome-message" v-if="!game.hasStarted">
       <h1>Welcome to JS Trivia!</h1>
       <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer.</p>
-      <button type="button" v-on:click="game.hasStarted = true">Try me!</button>
-    </div>  
+      <button type="button" v-on:click="game.startGame()">Try me!</button>
+    </div>
     <div class="questions" v-if="game.hasStarted && !game.gameOver">
       <strong>Total score: {{ game.totalScore }}</strong>
-      <question 
-        class="question" 
-        :question="questions[game.currentQuestion]" 
+      <p>Time left: {{ game.timeLeft / 1000 }}</p>
+      <question
+        class="question"
+        :question="questions[game.currentQuestion]"
         :game="game"></question>
     </div>
     <div class="result" v-if="game.gameOver">
@@ -42,9 +43,29 @@ export default {
         gameOver: false,
         totalScore: 0,
         maxQuestions: 2,
+        answerTime: 10000,
+        timeLeft: 0,
+        startGame() {
+          this.hasStarted = true;
+          this.currentQuestion = 0;
+          this.restartCounter();
+        },
+        restartCounter() {
+          this.timeLeft = this.answerTime;
+          const interval = setInterval(() => {
+            if (this.timeLeft !== 0) {
+              this.timeLeft -= 1000;
+            } else {
+              clearInterval(interval);
+              this.falseAnswers += 1;
+              this.nextQuestion();
+            }
+          }, 1000);
+        },
         nextQuestion() {
           if ((this.maxQuestions - 1) > this.currentQuestion) {
             this.currentQuestion += 1;
+            this.restartCounter();
           } else {
             this.gameOver = true;
           }
