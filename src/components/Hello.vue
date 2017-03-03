@@ -61,7 +61,8 @@ export default {
               this.timeLeft -= 1000;
             } else {
               this.stopInterval();
-              this.falseAnswers += 1;
+              this.falseAnswers.push(this.currentQuestion);
+              this.answers.push(null);
               this.nextQuestion();
             }
           }, 1000);
