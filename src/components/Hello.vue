@@ -16,42 +16,19 @@
         :question="questions[game.currentQuestion]"
         :game="game"></question>
     </div>
-    <div class="result" v-if="game.gameOver">
-      <h1>Well done!</h1>
-      <p>Thanks for participating. Here is your score.</p>
-      <ul>
-        <li>Total score: <strong>{{ game.totalScore }}</strong></li>
-        <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
-        <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
-      </ul>
-      <div class="summary">
-        <div class="summary-block" v-for="(question, index) in questions">
-          <p class="question-number">{{ index + 1 }}. Question</p>
-          <h2>{{ question.question }}</h2>
-          <p>
-            <strong>Your Answer:</strong>
-            {{ game.answers[index] }}
-            <div class="correct" v-if="game.wasCorrectlyAnswered(game.correctAnswers, index)">
-              Correct!
-            </div>
-            <div class="false" v-if="!game.wasCorrectlyAnswered(game.correctAnswers, index)">
-              False!
-            </div>
-          </p>
-          <p v-if="!game.wasCorrectlyAnswered(game.correctAnswers, index)">Solution: {{ question.answers[question.solution] }}</p>
-        </div>
-      </div>
-    </div>
+    <results :questions="questions" :game="game"></results>
   </div>
 </template>
 
 <script>
 import Question from './Question';
+import Results from './Results';
 
 export default {
   name: 'hello',
   components: {
     Question,
+    Results,
   },
   data() {
     return {
@@ -67,9 +44,6 @@ export default {
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,
-        wasCorrectlyAnswered(correctAnswers, idx) {
-          return correctAnswers.indexOf(idx) >= 0;
-        },
         startGame() {
           this.hasStarted = true;
           this.currentQuestion = 0;
@@ -194,44 +168,5 @@ button {
 button:hover {
   opacity: 0.7;
   cursor: pointer;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.summary {
-  border-top: 1px solid #ddd;
-  margin-top: 2rem;
-  padding-top: 2rem;
-}
-
-.summary-block {
-  background-color: #eee;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  margin: 2rem auto;
-  width: 70%;
-}
-
-.question-number {
-  color: #aaa;
-  font-weight: 300;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.correct,
-.false {
-  text-align: center;
-}
-
-.correct {
-  color: #42b983;
-}
-
-.false {
-  color: #FF0000;
 }
 </style>
