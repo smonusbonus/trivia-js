@@ -21,10 +21,10 @@ export default {
         const indexGivenAnswer = this.question.answers.indexOf(answer);
         if (indexSolution === indexGivenAnswer) {
           this.game.totalScore += 10 * (this.game.timeLeft / 1000);
-          this.game.correctAnswers += 1;
+          this.game.correctAnswers.push(this.game.currentQuestion);
           this.game.nextQuestion();
         } else {
-          this.game.falseAnswers += 1;
+          this.game.falseAnswers.push(this.game.currentQuestion);
           this.game.nextQuestion();
         }
       },
