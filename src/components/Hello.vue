@@ -24,6 +24,13 @@
         <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
         <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
       </ul>
+      <div class="summary">
+        <div v-for="(question, index) in questions">
+          {{ question.question }}
+          <span v-if="game.wasCorrectlyAnswered(game.correctAnswers, index)">Correct!</span>
+          <span v-if="!game.wasCorrectlyAnswered(game.correctAnswers, index)">False!</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,6 +56,9 @@ export default {
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,
+        wasCorrectlyAnswered(correctAnswers, idx) {
+          return correctAnswers.indexOf(idx) >= 0;
+        },
         startGame() {
           this.hasStarted = true;
           this.currentQuestion = 0;
