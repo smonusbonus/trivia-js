@@ -21,7 +21,11 @@
             False!
           </div>
         </p>
-        <p v-if="!wasCorrectlyAnswered(game.correctAnswers, index)">Solution: {{ question.answers[question.solution] }}</p>
+        <div v-if="!wasCorrectlyAnswered(game.correctAnswers, index)">
+          <p>Solution: {{ question.answers[question.solution] }}</p>
+          <p class="explanation">{{ question.explanation }}</p>
+          <a class="source" :href="question.source">More information</a>
+        </div>
       </div>
     </div>
   </div>
@@ -44,8 +48,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h2 {
-  margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0 2rem;
 }
 
 ul {
@@ -91,5 +96,18 @@ ul {
 
 .false {
   color: #FF0000;
+}
+
+.explanation {
+  font-size: 0.8rem;
+  margin: 0 2rem;
+}
+
+.source {
+  color: #42b983;
+  display: block;
+  font-size: 0.8rem;
+  margin: 1.5rem 0;
+  text-align: center;
 }
 </style>
