@@ -19,6 +19,8 @@ export default {
       checkCorrect: (answer) => {
         const indexSolution = this.question.solution;
         const indexGivenAnswer = this.question.answers.indexOf(answer);
+        this.game.answers.push(answer);
+
         if (indexSolution === indexGivenAnswer) {
           this.game.totalScore += 10 * (this.game.timeLeft / 1000);
           this.game.correctAnswers.push(this.game.currentQuestion);
