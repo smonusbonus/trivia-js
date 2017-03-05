@@ -6,9 +6,13 @@
       <span class="time" v-if="game.hasStarted">Time left: <strong>{{ game.timeLeft / 1000 }}</strong></span>
     </header>
     <div class="welcome-message" v-if="!game.hasStarted">
-      <h1>Welcome to trivia.js!</h1>
-      <p>trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
-      <button type="button" v-on:click="game.startGame()">Try me!</button>
+      <div class="welcome-text">
+        <h1>Welcome to trivia.js!</h1>
+        <p>trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
+      </div>
+      <div>
+        <button type="button" v-on:click="game.startGame()">Try me!</button>
+      </div>
     </div>
     <div class="game" v-if="game.hasStarted && !game.gameOver">
       <question
@@ -120,6 +124,7 @@ export default {
 <style scoped>
 h1 {
   font-size: 3rem;
+  margin-bottom: 0;
 }
 
 h1, h2 {
@@ -128,6 +133,14 @@ h1, h2 {
 
 .welcome-message {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.welcome-text {
+  margin-bottom: 2rem;
 }
 
 header {
@@ -135,7 +148,8 @@ header {
   color: #fff;
   padding: 1rem;
   display: flex;
-  margin-bottom: 5rem;
+  position: fixed;
+  width: 100%;
 }
 
 header span {
