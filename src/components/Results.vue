@@ -12,7 +12,7 @@
     <div class="summary">
       <div class="summary-block" v-for="(question, index) in questions">
         <p class="question-number">{{ index + 1 }}. Question</p>
-        <h2>{{ question.question }}</h2>
+        <h2 v-html="question.question"></h2>
         <p>
           <strong>Your Answer:</strong>
           {{ game.answers[index] }}

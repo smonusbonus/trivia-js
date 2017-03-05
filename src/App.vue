@@ -17,21 +17,23 @@ export default {
 
 <style src="../node_modules/normalize.css/normalize.css"></style>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,600');
-
 html {
   /* Use font-size as reference point for rem units */
   font-size: 18px;
 }
 
 body {
+  font-family: Helvetica, Arial, monospace;
   margin: 0;
-}
-
-#app {
-  font-family: 'Overpass Mono', Helvetica, Arial, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8em;
+  padding: 0.3em;
+  background-color: #f8f8f8;
 }
 
 h1, h2, li {

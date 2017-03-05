@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <h2>{{ question.question }}</h2>
+    <h2 v-html="question.question"></h2>
     <div>
       <button type="button" v-for="answer in question.answers" v-on:click="checkCorrect(answer)">
         {{ answer }}
