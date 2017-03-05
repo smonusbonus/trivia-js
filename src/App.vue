@@ -33,7 +33,7 @@ code {
   font-family: 'Courier New', monospace;
   font-size: 0.8em;
   padding: 0.3em;
-  background-color: #f8f8f8;
+  background-color: #f6f6f6;
 }
 
 h1, h2, li {

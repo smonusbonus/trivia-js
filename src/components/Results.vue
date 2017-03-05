@@ -91,7 +91,7 @@ ul {
   margin: 0 0 1rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
-  background-color: #eee;
+  background-color: #f6f6f6;
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
