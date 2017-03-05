@@ -15,6 +15,7 @@ export default {
 };
 </script>
 
+<style src="../node_modules/normalize.css/normalize.css"></style>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,600');
 
