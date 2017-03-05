@@ -131,7 +131,8 @@ h1, h2 {
   font-weight: 600;
 }
 
-.welcome-message {
+.welcome-message,
+.game {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -145,9 +146,10 @@ h1, h2 {
 
 header {
   background-color: #42b983;
+  box-sizing: border-box;
   color: #fff;
-  padding: 1rem;
   display: flex;
+  padding: 1rem;
   position: fixed;
   width: 100%;
 }

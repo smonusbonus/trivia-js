@@ -1,12 +1,14 @@
 <template>
-  <div class="result" v-if="game.gameOver">
-    <h1>Well done!</h1>
-    <p>Thanks for participating. Here is your score.</p>
-    <ul>
-      <li>Total score: <strong>{{ game.totalScore }}</strong></li>
-      <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
-      <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
-    </ul>
+  <div v-if="game.gameOver">
+    <div class="results">
+      <h1>Well done!</h1>
+      <p>Thanks for participating. Here is your score.</p>
+      <ul>
+        <li>Total score: <strong>{{ game.totalScore }}</strong></li>
+        <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
+        <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
+      </ul>
+    </div>
     <div class="summary">
       <div class="summary-block" v-for="(question, index) in questions">
         <p class="question-number">{{ index + 1 }}. Question</p>
@@ -56,6 +58,14 @@ h2 {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+.results {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 
 .summary {
