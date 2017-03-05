@@ -6,8 +6,8 @@
       <span class="time" v-if="game.hasStarted">Time left: <strong>{{ game.timeLeft / 1000 }}</strong></span>
     </header>
     <div class="welcome-message" v-if="!game.hasStarted">
-      <h1>Welcome to JS Trivia!</h1>
-      <p>JS Trivia is a fun way to test you Javascript knowledge and become a better programmer.</p>
+      <h1>Welcome to trivia.js!</h1>
+      <p>trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
       <button type="button" v-on:click="game.startGame()">Try me!</button>
     </div>
     <div class="game" v-if="game.hasStarted && !game.gameOver">
