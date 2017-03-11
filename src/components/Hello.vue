@@ -90,7 +90,7 @@ export default {
           }
         },
         getQuestions() {
-          return Vue.http.get('/questions').then(response => response.body);
+          return Vue.http.get('/api/questions').then(response => response.body);
         },
       },
     };

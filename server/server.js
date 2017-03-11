@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
-app.get('/questions', (req, res) => {
+app.get('/api/questions', (req, res) => {
   res.json(questions);
 });
 
