@@ -21,7 +21,7 @@
         <p>trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
       </div>
       <div>
-        <button type="button" v-on:click="game.startGame()">Try me!</button>
+        <button type="button" v-on:click="game.startGame()" class="btn btn-primary">Try me!</button>
       </div>
     </div>
     <div class="game" v-if="game.hasStarted && !game.gameOver">
@@ -160,22 +160,5 @@ header > span {
 
 .time {
   text-align: right;
-}
-
-button {
-  background-color: #42b983;
-  color: #fff;
-  padding: 1rem;
-  font-size: 1rem;
-  border: 0;
-  outline: 0;
-  border-radius: 0.5rem;
-  margin: 0 0.5rem;
-  text-transform: uppercase;
-}
-
-button:hover {
-  opacity: 0.7;
-  cursor: pointer;
 }
 </style>

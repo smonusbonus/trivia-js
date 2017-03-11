@@ -44,4 +44,30 @@ p {
   font-size: 1rem;
   text-align: center;
 }
+
+.btn {
+  padding: 1rem;
+  font-size: 0.9rem;
+  border: 0;
+  outline: 0;
+  border-radius: 0.5rem;
+  margin: 0 0.5rem 1rem 0.5rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.btn-default {
+  background-color: #eee;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #42b983;
+  color: #fff;
+  text-transform: uppercase;
+}
 </style>

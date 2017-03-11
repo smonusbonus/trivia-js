@@ -2,7 +2,7 @@
   <div class="question">
     <h2 v-html="question.question"></h2>
     <div>
-      <button type="button" v-for="answer in question.answers" v-on:click="checkCorrect(answer)">
+      <button type="button" class="btn btn-default" v-for="answer in question.answers" v-on:click="checkCorrect(answer)">
         {{ answer }}
       </button>
     </div>
@@ -36,22 +36,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-button {
-  background-color: #eee;
-  color: #333;
-  padding: 1rem;
-  font-size: 0.9rem;
-  border: 0;
-  outline: 0;
-  border-radius: 0.5rem;
-  margin: 0 0.5rem 1rem 0.5rem;
-}
-
-button:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-
 div {
   text-align: center;
 }
