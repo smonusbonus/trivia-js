@@ -4,7 +4,7 @@
       <h1>Well done!</h1>
       <p>Thanks for participating. Here is your score.</p>
       <ul>
-        <li>Total score: <strong>{{ game.totalScore }}</strong></li>
+        <li>Score: <strong>{{ game.totalScore }}</strong></li>
         <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
         <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
       </ul>

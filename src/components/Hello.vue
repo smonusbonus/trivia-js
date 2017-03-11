@@ -3,7 +3,7 @@
     <header>
       <span class="score">
         <span v-if="game.hasStarted">
-          Total score: {{ game.totalScore }}</span>
+          Score: {{ game.totalScore }}</span>
         </span>
       <span class="logo"><img src="../assets/logo.png" alt="trivia.js logo"></span>
       <span class="time">
