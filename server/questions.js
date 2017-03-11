@@ -62,4 +62,15 @@ module.exports = [
     explanation: 'Although it was developed under the name Mocha, the language was officially called LiveScript when it first shipped in beta releases of Netscape Navigator 2.0 in September 1995, but it was renamed JavaScript when it was deployed in the Netscape Navigator 2.0 beta 3 in December.',
     source: 'https://en.wikipedia.org/wiki/JavaScript',
   },
+  {
+    question: 'What differentiates Array.prototype.forEach() from Array.prototype.map()?',
+    answers: [
+      'It returns undefined',
+      'Can also be used for objects',
+      'The callback function is invoked with the current index',
+    ],
+    solution: 0,
+    explanation: 'Whereas Array.prototype.map() returns an array consisting of the values returned by the callback function Array.prototype.forEach() always returns undefined.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Return_value',
+  },
 ];

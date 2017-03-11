@@ -56,7 +56,7 @@ export default {
         hasStarted: false,
         gameOver: false,
         totalScore: 0,
-        maxQuestions: 6,
+        maxQuestions: 7,
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,
@@ -129,10 +129,6 @@ h1, h2 {
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
-}
-
-.welcome-text {
-  margin-bottom: 2rem;
 }
 
 header {
