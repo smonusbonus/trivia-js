@@ -50,6 +50,7 @@ h1, h2, h3, h4, h5, h6, p, li, strong, em {
 }
 
 .btn {
+  display: inline-block;
   padding: 0.77rem 1rem 0.8rem 1rem; /* 0.77 is needed to reach optical center */
   border: 0;
   outline: 0;
