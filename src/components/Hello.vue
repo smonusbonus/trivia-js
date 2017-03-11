@@ -56,7 +56,7 @@ export default {
         hasStarted: false,
         gameOver: false,
         totalScore: 0,
-        maxQuestions: 4,
+        maxQuestions: 6,
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,

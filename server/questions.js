@@ -38,4 +38,28 @@ module.exports = [
     explanation: 'Ecma International is an international private (membership-based) non-profit standards organization for information and communication systems. It acquired its current name in 1994, when the European Computer Manufacturers Association (ECMA) changed its name to reflect the organization\'s global reach and activities.',
     source: 'https://en.wikipedia.org/wiki/Ecma_International',
   },
+  {
+    question: 'Who is the creator of the JavaScript programming language?',
+    answers: [
+      'Brendan Eich',
+      'Tim Berners-Lee',
+      'Dennis Ritchie',
+      'Steve Wozniak',
+    ],
+    solution: 0,
+    explanation: 'Brendan Eich is an American technologist and creator of the JavaScript programming language. He co-founded the Mozilla project, the Mozilla Foundation and the Mozilla Corporation, and served as the Mozilla Corporation\'s chief technical officer and briefly its chief executive officer.',
+    source: 'https://en.wikipedia.org/wiki/Brendan_Eich',
+  },
+  {
+    question: 'When was JavaScript released for the first time?',
+    answers: [
+      '1995',
+      '1994',
+      '1996',
+      '1999',
+    ],
+    solution: 0,
+    explanation: 'Although it was developed under the name Mocha, the language was officially called LiveScript when it first shipped in beta releases of Netscape Navigator 2.0 in September 1995, but it was renamed JavaScript when it was deployed in the Netscape Navigator 2.0 beta 3 in December.',
+    source: 'https://en.wikipedia.org/wiki/JavaScript',
+  },
 ];
