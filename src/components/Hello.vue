@@ -17,11 +17,14 @@
     </header>
     <div class="welcome-message" v-if="!game.hasStarted">
       <div class="welcome-text">
-        <h1>Welcome to trivia.js!</h1>
-        <p>trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
+        <h1>Welcome!</h1>
+        <p class="lead">trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
+        <p>We'll ask 10 random questions and you've got 10 seconds to answer each one. The quicker you answer, the more points you get. Ready?</p>
       </div>
       <div>
-        <button type="button" v-on:click="game.startGame()" class="btn btn-primary">Try me!</button>
+        <button type="button" v-on:click="game.startGame()" class="btn btn-primary">
+          Got it, let's go!
+        </button>
       </div>
     </div>
     <div class="game" v-if="game.hasStarted && !game.gameOver">
@@ -131,10 +134,15 @@ h1, h2 {
   margin: 0 auto;
 }
 
+.lead {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+
 header {
   background-color: #42b983;
   box-sizing: border-box;
-  color: #fff;
   display: flex;
   padding: 1rem;
   position: fixed;
