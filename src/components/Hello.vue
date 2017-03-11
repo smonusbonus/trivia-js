@@ -15,7 +15,7 @@
         </span>
       </span>
     </header>
-    <div class="welcome-message" v-if="!game.hasStarted">
+    <div class="welcome-message" v-if="!game.hasStarted && !game.gameOver">
       <div class="welcome-text">
         <h1>Welcome!</h1>
         <p class="lead">trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
@@ -34,7 +34,7 @@
         :game="game"></question>
     </div>
     <results :questions="game.questions" :game="game"></results>
-    <div class="github">
+    <div class="github" v-if="!game.hasStarted">
       <a href="https://github.com/smonusbonus/js-trivia" target="_blank">
         <i class="fa fa-github" aria-hidden="true"></i>
         Github
@@ -105,6 +105,7 @@ export default {
             this.restartCounter();
           } else {
             this.stopInterval();
+            this.hasStarted = false;
             this.gameOver = true;
           }
         },

@@ -77,7 +77,6 @@ ul {
 
 .summary {
   border-top: 1px solid #ddd;
-  margin-top: 2rem;
   padding-top: 3rem;
 }
 
