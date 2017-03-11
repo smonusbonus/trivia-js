@@ -17,14 +17,15 @@
     <div class="game" v-if="game.hasStarted && !game.gameOver">
       <question
         class="question"
-        :question="questions[game.currentQuestion]"
+        :question="game.questions[game.currentQuestion]"
         :game="game"></question>
     </div>
-    <results :questions="questions" :game="game"></results>
+    <results :questions="game.questions" :game="game"></results>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
 import Question from './Question';
 import Results from './Results';
 
@@ -50,9 +51,16 @@ export default {
         timeLeft: 0,
         currentInterval: null,
         startGame() {
-          this.hasStarted = true;
-          this.currentQuestion = 0;
-          this.restartCounter();
+          this.getQuestions()
+            .then((result) => {
+              this.questions = result;
+              this.hasStarted = true;
+              this.currentQuestion = 0;
+              this.restartCounter();
+            })
+            .catch((error) => {
+              throw new Error(error.message);
+            });
         },
         stopInterval() {
           clearInterval(this.currentInterval);
@@ -80,6 +88,9 @@ export default {
             this.stopInterval();
             this.gameOver = true;
           }
+        },
+        getQuestions() {
+          return Vue.http.get('/questions').then(response => response.body);
         },
       },
     };
