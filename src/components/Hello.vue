@@ -129,6 +129,7 @@ header {
   display: flex;
   padding: 1rem;
   position: fixed;
+  z-index: 100;
   width: 100%;
 }
 

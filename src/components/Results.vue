@@ -11,7 +11,10 @@
     </div>
     <div class="summary">
       <div class="summary-block" v-for="(question, index) in questions">
-        <p class="question-number">{{ index + 1 }}. Question</p>
+        <div class="summary-block-header">
+          <p class="question-number">{{ index + 1 }}. Question</p>
+          <a class="source" target="_blank" :href="question.source">Source</a>
+        </div>
         <h2 v-html="question.question"></h2>
         <p>
           <strong>Your Answer:</strong>
@@ -26,7 +29,6 @@
         <div v-if="!wasCorrectlyAnswered(game.correctAnswers, index)">
           <p>Solution: {{ question.answers[question.solution] }}</p>
           <p class="explanation">{{ question.explanation }}</p>
-          <a class="source" :href="question.source">More information</a>
         </div>
       </div>
     </div>
@@ -80,7 +82,18 @@ ul {
   border-radius: 0.5rem;
   box-shadow: 1px 1px 5px #eee;
   margin: 2rem auto;
-  width: 70%;
+  width: 90%;
+  max-width: 800px;
+}
+
+.summary-block-header {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+  background-color: #f6f6f6;
+  border-radius: 0.5rem 0.5rem 0 0;
+  position: relative;
+  margin-bottom: 1rem;
+  z-index: 10;
 }
 
 .question-number {
@@ -88,11 +101,21 @@ ul {
   font-weight: 300;
   font-size: 0.9rem;
   text-align: center;
-  margin: 0 0 1rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #ddd;
-  background-color: #f6f6f6;
-  border-radius: 0.5rem 0.5rem 0 0;
+  margin: 0;
+}
+
+.source {
+  color: #ccc;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  text-decoration: none;
+}
+
+.source:hover {
+  color: #aaa;
+  text-decoration: underline;
 }
 
 .correct,
@@ -111,13 +134,5 @@ ul {
 .explanation {
   font-size: 0.8rem;
   margin: 0 2rem;
-}
-
-.source {
-  color: #42b983;
-  display: block;
-  font-size: 0.8rem;
-  margin: 1.5rem 0;
-  text-align: center;
 }
 </style>
