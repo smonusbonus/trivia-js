@@ -11,7 +11,10 @@
         </ul>
       </div>
       <div>
-        <a href="#solutions" class="btn btn-primary">Check solutions</a>
+        <a href="#solutions" class="btn btn-primary">
+          <i class="fa fa-check-square-o"></i>
+          Check solutions
+        </a>
       </div>
     </div>
     <div id="solutions" class="summary">
