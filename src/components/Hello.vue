@@ -34,6 +34,12 @@
         :game="game"></question>
     </div>
     <results :questions="game.questions" :game="game"></results>
+    <div class="github">
+      <a href="https://github.com/smonusbonus/js-trivia" target="_blank">
+        <i class="fa fa-github" aria-hidden="true"></i>
+        Github
+      </a>
+    </div>
   </div>
 </template>
 
@@ -173,5 +179,21 @@ header span strong {
 
 .time {
   text-align: right;
+}
+
+.github {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.github a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.github a:hover {
+  color: #aaa;
 }
 </style>
