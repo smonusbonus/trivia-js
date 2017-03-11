@@ -45,14 +45,18 @@ p {
   text-align: center;
 }
 
+h1, h2, h3, h4, h5, h6, p, li, strong, em {
+  color: #444;
+}
+
 .btn {
-  padding: 1rem;
-  font-size: 0.9rem;
+  padding: 0.77rem 1rem 0.8rem 1rem; /* 0.77 is needed to reach optical center */
   border: 0;
   outline: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   margin: 0 0.5rem 1rem 0.5rem;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .btn:hover {
@@ -61,13 +65,16 @@ p {
 }
 
 .btn-default {
+  font-size: 0.9rem;
   background-color: #eee;
   color: #333;
 }
 
 .btn-primary {
+  font-size: 0.8rem;
   background-color: #42b983;
   color: #fff;
   text-transform: uppercase;
+  font-weight: 600;
 }
 </style>

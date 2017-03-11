@@ -111,12 +111,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 0;
 }
 
 h1, h2 {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .welcome-message,
@@ -146,6 +146,11 @@ header > span {
   flex-grow: 1;
   flex-basis: 33.33%;
   padding-top: 0.5rem;
+}
+
+header span,
+header span strong {
+  color: #fff;
 }
 
 .logo {
