@@ -8,8 +8,9 @@
         <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
         <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
       </ul>
+      <a href="#solutions" class="btn btn-primary">Check solutions</a>
     </div>
-    <div class="summary">
+    <div id="solutions" class="summary">
       <div class="summary-block" v-for="(question, index) in questions">
         <div class="summary-block-header">
           <p class="question-number">{{ index + 1 }}. Question</p>
@@ -70,10 +71,15 @@ ul {
   height: 100vh;
 }
 
+.btn {
+  width: 10rem;
+  margin: 0 auto;
+}
+
 .summary {
   border-top: 1px solid #ddd;
   margin-top: 2rem;
-  padding-top: 2rem;
+  padding-top: 3rem;
 }
 
 .summary-block {
