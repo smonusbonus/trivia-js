@@ -2,7 +2,7 @@
   <div class="hello">
     <header>
       <span class="score" v-if="game.hasStarted">Total score: {{ game.totalScore }}</span>
-      <span class="logo">trivia.js</span>
+      <span class="logo"><img src="../assets/logo.png" alt="trivia.js logo"></span>
       <span class="time" v-if="game.hasStarted">Time left: <strong>{{ game.timeLeft / 1000 }}</strong></span>
     </header>
     <div class="welcome-message" v-if="!game.hasStarted">
@@ -157,13 +157,17 @@ header {
 header span {
   flex-grow: 1;
   flex-basis: 33.33%;
+  padding-top: 0.5rem;
 }
 
 .logo {
-  font-size: 1.6rem;
-  line-height: 1.3rem;
-  text-shadow: 2px 2px 0 #3d725a;
+  padding-top: 0;
   text-align: center;
+}
+
+.logo img {
+  width: auto;
+  height: 2rem;
 }
 
 .time {
