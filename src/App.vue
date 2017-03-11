@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5, h6, p, li, strong, em {
   margin: 0 0.5rem 1rem 0.5rem;
   text-decoration: none;
   box-sizing: border-box;
+  transition: opacity 0.3s;
 }
 
 .btn:hover {
