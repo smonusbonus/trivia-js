@@ -73,4 +73,11 @@ module.exports = [
     explanation: 'Whereas Array.prototype.map() returns an array consisting of the values returned by the callback function Array.prototype.forEach() always returns undefined.',
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Return_value',
   },
+  {
+    question: 'What will <code>parseInt(\'abc123\')</code> return?',
+    answers: ['NaN', '123', '1', 'Throws an error'],
+    solution: 0,
+    explanation: 'An integer number parsed from the given string. If the first character cannot be converted to a number, NaN is returned.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt',
+  },
 ];
