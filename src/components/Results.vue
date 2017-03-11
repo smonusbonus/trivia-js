@@ -82,6 +82,7 @@ ul {
   border-radius: 0.5rem;
   box-shadow: 1px 1px 5px #eee;
   margin: 2rem auto;
+  padding-bottom: 1rem;
   width: 90%;
   max-width: 800px;
 }
