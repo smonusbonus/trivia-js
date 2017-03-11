@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "A JavaScript trivia quiz",
   "author": "smonusbonus <simokrei@gmail.com>",
+  "license": "MIT",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "heroku-postbuild": "node build/build.js",
+    "postinstall": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs"
@@ -80,8 +81,8 @@
     "webpack-merge": "^2.6.1"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": "6.9.1",
+    "npm": "4.0.3"
   },
   "browserlist": [
     "> 1%",
