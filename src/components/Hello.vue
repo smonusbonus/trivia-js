@@ -5,7 +5,9 @@
         <span v-if="game.hasStarted">
           Score: {{ game.totalScore }}</span>
         </span>
-      <span class="logo"><img src="../assets/logo.png" alt="trivia.js logo"></span>
+      <span class="logo">
+        <a href="/"><img src="../assets/logo.png" alt="trivia.js logo"></a>
+      </span>
       <span class="time">
         <span v-if="game.hasStarted && !game.gameOver">
           Time left: <strong>{{ game.timeLeft / 1000 }}s</strong>
