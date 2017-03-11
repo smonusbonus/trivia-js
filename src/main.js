@@ -4,6 +4,8 @@ import Vue from 'vue';
 import vueResource from 'vue-resource';
 import App from './App';
 
+require('font-awesome-webpack');
+
 Vue.config.productionTip = false;
 Vue.use(vueResource);
 
