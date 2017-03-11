@@ -11,7 +11,7 @@
       </span>
       <span class="time">
         <span v-if="game.hasStarted && !game.gameOver">
-          Time left: <strong>{{ game.timeLeft / 1000 }}s</strong>
+          Time: <strong>{{ game.timeLeft / 1000 }}s</strong>
         </span>
       </span>
     </header>
@@ -65,7 +65,7 @@ export default {
         hasStarted: false,
         gameOver: false,
         totalScore: 0,
-        maxQuestions: 7,
+        maxQuestions: 8,
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,
