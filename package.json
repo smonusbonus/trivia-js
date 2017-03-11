@@ -5,6 +5,7 @@
   "author": "smonusbonus <simokrei@gmail.com>",
   "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
