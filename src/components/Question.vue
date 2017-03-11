@@ -37,14 +37,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 button {
-  background-color: #ccc;
+  background-color: #eee;
   color: #333;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border: 0;
   outline: 0;
   border-radius: 0.5rem;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 1rem 0.5rem;
 }
 
 button:hover {
