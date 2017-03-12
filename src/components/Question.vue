@@ -2,7 +2,11 @@
   <div class="question">
     <h2 v-html="question.question"></h2>
     <div>
-      <button type="button" class="btn btn-default" v-for="answer in question.answers" v-on:click="checkCorrect(answer)">
+      <button
+        type="button"
+        class="btn btn-default"
+        v-for="answer in shuffleAnswers(question.answers)"
+        v-on:click="checkCorrect(answer)">
         {{ answer }}
       </button>
     </div>
@@ -10,6 +14,9 @@
 </template>
 
 <script>
+
+import fisherYatesShuffle from 'fisher-yates';
+
 export default {
   name: 'question',
   props: ['question', 'game'],
@@ -28,6 +35,9 @@ export default {
           this.game.falseAnswers.push(this.game.currentQuestion);
           this.game.nextQuestion();
         }
+      },
+      shuffleAnswers(answers) {
+        return fisherYatesShuffle(answers);
       },
     };
   },

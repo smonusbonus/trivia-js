@@ -2364,6 +2364,10 @@ find-up@^1.0.0, find-up@^1.1.2:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
+fisher-yates:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/fisher-yates/-/fisher-yates-1.0.3.tgz#fb4ce9f1b873760c4208adfe5ce08100f264411b"
+
 flat-cache@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-1.2.2.tgz#fa86714e72c21db88601761ecf2f555d1abc6b96"
