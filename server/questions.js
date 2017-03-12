@@ -115,4 +115,11 @@ module.exports = [
     explanation: 'The let statement declares a block scope local variable, optionally initializing it to a value.',
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let',
   },
+  {
+    question: 'What will the following piece of JavaScript return? <code>[1, 2, 3].splice(2)</code>',
+    answers: ['[3]', '[1, 2]', 'undefined', '[1]'],
+    solution: 0,
+    explanation: 'Return value: An array containing the deleted elements.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
+  },
 ];
