@@ -65,7 +65,7 @@ export default {
         hasStarted: false,
         gameOver: false,
         totalScore: 0,
-        maxQuestions: 8,
+        maxQuestions: 10,
         maxPoints: () => this.game.maxQuestions * 100,
         answerTime: 10000,
         timeLeft: 0,
