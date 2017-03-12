@@ -36,9 +36,17 @@ body {
 
 code {
   font-family: 'Courier New', monospace;
-  font-size: 0.8em;
-  padding: 0.3em;
+  font-size: 0.8rem;
+  padding: 0.3rem;
   background-color: #f6f6f6;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h1, h2 {
+  font-weight: 500;
 }
 
 h1, h2, li {
@@ -54,16 +62,23 @@ h1, h2, h3, h4, h5, h6, p, li, strong, em {
   color: #444;
 }
 
+.text-muted {
+  color: #999;
+}
+
 .btn {
-  display: inline-block;
-  padding: 0.77rem 1rem 0.8rem 1rem; /* 0.77 is needed to reach optical center */
   border: 0;
-  outline: 0;
   border-radius: 0.3rem;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.77rem 1rem 0.8rem 1rem; /* 0.77 is needed to reach optical center */
+  outline: 0;
   margin: 0 0.5rem 1rem 0.5rem;
   text-decoration: none;
-  box-sizing: border-box;
   transition: opacity 0.3s;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .btn:hover {
@@ -72,16 +87,12 @@ h1, h2, h3, h4, h5, h6, p, li, strong, em {
 }
 
 .btn-default {
-  font-size: 0.9rem;
   background-color: #eee;
   color: #333;
 }
 
 .btn-primary {
-  font-size: 0.8rem;
   background-color: #42b983;
   color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
 }
 </style>
