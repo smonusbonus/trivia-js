@@ -46,6 +46,7 @@
 
 <script>
 import Vue from 'vue';
+import fisherYatesShuffle from 'fisher-yates';
 import Question from './Question';
 import Results from './Results';
 
@@ -72,7 +73,7 @@ export default {
         timeLeft: 0,
         currentInterval: null,
         startGame() {
-          this.getQuestions()
+          this.getQuestions(this.maxQuestions)
             .then((result) => {
               this.questions = result;
               this.hasStarted = true;
@@ -129,8 +130,11 @@ export default {
           const percentage = this.getPercentageCorrect(correct, total);
           return 5 * (percentage / 100);
         },
-        getQuestions() {
-          return Vue.http.get('/api/questions').then(response => response.body);
+        getQuestions(limit) {
+          return Vue.http.get('/api/questions').then((response) => {
+            const randomizedQuestions = fisherYatesShuffle(response.body);
+            return randomizedQuestions.slice(0, limit);
+          });
         },
       },
     };
