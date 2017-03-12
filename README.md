@@ -1,27 +1,23 @@
-# js-trivia
+# trivia.js
+trivia.js is a fun way to test your Javascript knowledge and become a better programmer.
 
-> A JavaScript trivia quiz
+## Hosting
+Trivia.js is hosted on a free Heroku Dyno and can be found here: [http://trivia-js.herokuapp.com/](http://trivia-js.herokuapp.com/)
 
-## Build Setup
-
+## Hacking
 ``` bash
 # install dependencies
-npm install
+yarn install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# start the node/express server
+yarn run start
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# start the webpack dev serve with hot reload
+yarn run dev
 
 # run unit tests
-npm run unit
+yarn run unit
 
 # run all tests
-npm test
+yarn test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
