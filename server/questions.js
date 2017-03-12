@@ -109,7 +109,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest',
   },
   {
-    question: 'What differentiates <code>let<code> from <code>var</code>?',
+    question: 'What differentiates <code>let</code> from <code>var</code>?',
     answers: ['let supports block scope', 'var can only be assigned once', 'Variables declared with var are always global'],
     solution: 0,
     explanation: 'The let statement declares a block scope local variable, optionally initializing it to a value.',
