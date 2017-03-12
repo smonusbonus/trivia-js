@@ -28,7 +28,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator'
   },
   {
-    question: 'What does ECMA in ECMAScript stand for?',
+    question: 'What does the acronym ECMA in ECMAScript stand for?',
     answers: [
       'European Computer Manufacturers Association',
       'Electronic Computer Manufacturers Association',
@@ -79,5 +79,19 @@ module.exports = [
     solution: 0,
     explanation: 'An integer number parsed from the given string. If the first character cannot be converted to a number, NaN is returned.',
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt',
+  },
+  {
+    question: 'What is the result of computing <code>35 / Infinity</code>?',
+    answers: ['0', 'NaN', 'Infinity', 'Throws an error'],
+    solution: 0,
+    explanation: 'This value behaves mathematically like infinity; for example, any positive number multiplied by Infinity is Infinity, and anything divided by Infinity is 0.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity',
+  },
+  {
+    question: 'What was the original name of JavaScript?',
+    answers: ['Mocha', 'Java', 'LiveScript', 'ECMAScript'],
+    solution: 0,
+    explanation: 'JavaScript was not always known as JavaScript: the original name was Mocha, a name chosen by Marc Andreessen, founder of Netscape.',
+    source: 'https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript',
   },
 ];
