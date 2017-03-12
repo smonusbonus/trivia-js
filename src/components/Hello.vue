@@ -66,6 +66,7 @@ export default {
         gameOver: false,
         totalScore: 0,
         maxQuestions: 8,
+        maxPoints: () => this.game.maxQuestions * 100,
         answerTime: 10000,
         timeLeft: 0,
         currentInterval: null,
@@ -74,6 +75,11 @@ export default {
             .then((result) => {
               this.questions = result;
               this.hasStarted = true;
+              this.gameOver = false;
+              this.correctAnswers = [];
+              this.answers = [];
+              this.falseAnswers = [];
+              this.totalScore = 0;
               this.currentQuestion = 0;
               this.restartCounter();
             })
@@ -107,7 +113,20 @@ export default {
             this.stopInterval();
             this.hasStarted = false;
             this.gameOver = true;
+            this.rating = this.getRating(this.correctAnswers.length, this.maxQuestions);
+            this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
+                                                               this.maxQuestions);
           }
+        },
+        getPercentageCorrect(correct, total) {
+          // magic number, 100 is the max. which can be reached per question
+          // this should be made explicit somewhere
+          return (correct / total) * 100;
+        },
+        getRating(correct, total) {
+          if (correct === 0) { return 0; }
+          const percentage = this.getPercentageCorrect(correct, total);
+          return 5 * (percentage / 100);
         },
         getQuestions() {
           return Vue.http.get('/api/questions').then(response => response.body);
@@ -123,10 +142,6 @@ export default {
 h1 {
   font-size: 2.8rem;
   margin-bottom: 0;
-}
-
-h1, h2 {
-  font-weight: 500;
 }
 
 .welcome-message,

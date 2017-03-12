@@ -3,18 +3,28 @@
     <div class="results">
       <div>
         <h1>Well done!</h1>
-        <p>Thanks for participating. Here is your score.</p>
-        <ul>
-          <li>Score: <strong>{{ game.totalScore }}</strong></li>
-          <li>No. of correct answers: <strong>{{ game.correctAnswers.length }}</strong></li>
-          <li>No. of false answers: <strong>{{ game.falseAnswers.length }}</strong></li>
-        </ul>
+        <div class="rating">
+          <i class="fa" v-for="(star, index) in [1, 2, 3, 4, 5]" v-bind:class="{
+            'fa-star-o': game.rating < (index + 0.5),
+            'fa-star': game.rating > (index + 0.5),
+            'fa-star-half-o': game.rating > index && game.rating <= (index + 0.5)
+          }"></i>
+        </div>
+        <p>
+          You answered {{ game.percentageCorrect }}% correctly
+        </p>
+        <small class="text-muted">
+          ({{ game.totalScore }} of {{ game.maxPoints() }} max. points)
+        </small>
       </div>
-      <div>
+      <div class="actions">
         <a href="#solutions" class="btn btn-primary">
           <i class="fa fa-check-square-o"></i>
           Check solutions
         </a>
+        <button type="button" class="btn btn-default" v-on:click="game.startGame()">
+          Try again
+        </button>
       </div>
     </div>
     <div id="solutions" class="summary">
@@ -65,17 +75,36 @@ h2 {
   margin: 0 2rem;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 .results {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+}
+
+.rating .fa {
+  font-size: 3rem;
+  margin-right: 0.3rem;
+}
+
+.fa-star,
+.fa-star-half-o {
+  color: #FFC402;
+}
+
+.fa-star-o {
+  color: #ddd;
+}
+
+.actions {
+  margin-top: 2rem;
+}
+
+.actions .btn {
+  width: 200px;
+  display: block;
+  margin: 0 auto 1rem auto;
 }
 
 .summary {
