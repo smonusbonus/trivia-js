@@ -94,4 +94,25 @@ module.exports = [
     explanation: 'JavaScript was not always known as JavaScript: the original name was Mocha, a name chosen by Marc Andreessen, founder of Netscape.',
     source: 'https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript',
   },
+  {
+    question: 'What does the term AJAX stand for?',
+    answers: ['Asynchronous JavaScript and XML', 'Asynchronous JavaScript Attax', 'Accessible Javascript and XML'],
+    solution: 0,
+    explanation: 'The name is shorthand for Asynchronous JavaScript + XML, and it represents a fundamental shift in what’s possible on the Web.',
+    source: 'http://adaptivepath.org/ideas/ajax-new-approach-web-applications/',
+  },
+  {
+    question: 'Which technology is one of the cornerstones of AJAX?',
+    answers: ['XMLHttpRequest', 'Web Storage API', 'Cryptography', 'FTP'],
+    solution: 0,
+    explanation: 'XMLHttpRequest is an API that provides client functionality for transferring data between a client and a server. It provides an easy way to retrieve data from a URL without having to do a full page refresh. XMLHttpRequest is used heavily in AJAX programming.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest',
+  },
+  {
+    question: 'What differentiates <code>let<code> from <code>var</code>?',
+    answers: ['let supports block scope', 'var can only be assigned once', 'Variables declared with var are always global'],
+    solution: 0,
+    explanation: 'The let statement declares a block scope local variable, optionally initializing it to a value.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let',
+  },
 ];
