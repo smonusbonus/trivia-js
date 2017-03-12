@@ -118,6 +118,7 @@ export default {
             this.rating = this.getRating(this.correctAnswers.length, this.maxQuestions);
             this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
                                                                this.maxQuestions);
+            this.trackResult();
           }
         },
         getPercentageCorrect(correct, total) {
@@ -135,6 +136,17 @@ export default {
             const randomizedQuestions = fisherYatesShuffle(response.body);
             return randomizedQuestions.slice(0, limit);
           });
+        },
+        trackResult() {
+          const data = JSON.stringify({
+            timestamp: Date.now(),
+            eventType: 'quiz-finished',
+            questions: this.questions.map(question => question.question),
+            answers: this.answers,
+            percentageCorrect: this.percentageCorrect,
+            totalScore: this.totalScore,
+          });
+          return Vue.http.post('/api/track-quiz-finished', data, { emulateJSON: true });
         },
       },
     };
