@@ -36,9 +36,11 @@ body {
 
 code {
   font-family: 'Courier New', monospace;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   padding: 0.3rem;
   background-color: #f6f6f6;
+  font-weight: inherit;
+  vertical-align: middle;
 }
 
 h1 {
@@ -56,6 +58,7 @@ h1, h2, li {
 p {
   font-size: 1rem;
   text-align: center;
+  margin: 0.5rem 0 1.5rem 0;
 }
 
 h1, h2, h3, h4, h5, h6, p, li, strong, em {
