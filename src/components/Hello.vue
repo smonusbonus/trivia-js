@@ -18,7 +18,7 @@
     <div class="welcome-message" v-if="!game.hasStarted && !game.gameOver">
       <div class="welcome-text">
         <h1>Welcome!</h1>
-        <p class="lead">trivia.js is a fun way to test you Javascript knowledge and become a better programmer.</p>
+        <p class="lead">trivia.js is a fun way to test your Javascript knowledge and become a better programmer.</p>
         <strong>How does it work?</strong>
         <p>We'll ask 10 random questions and you've got 10 seconds to answer each one. The quicker you answer, the more points you get. Ready?</p>
       </div>
