@@ -49,4 +49,8 @@ export default {
 div {
   text-align: center;
 }
+
+button {
+  text-transform: none;
+}
 </style>
