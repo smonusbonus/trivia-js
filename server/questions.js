@@ -28,7 +28,7 @@ module.exports = [
     ],
     solution: 0,
     explanation: 'The conditional (ternary) operator is the only JavaScript operator that takes three operands. This operator is frequently used as a shortcut for the if statement.',
-    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator'
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator',
   },
   {
     id: 'db5247231bb745f2ac8c93b3dac980bd',
