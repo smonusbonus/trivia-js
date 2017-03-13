@@ -111,18 +111,24 @@ export default {
             }
           }, 1000);
         },
+        closeGame() {
+          this.stopInterval();
+          this.hasStarted = false;
+          this.gameOver = true;
+          this.rating = this.getRating(this.correctAnswers.length, this.maxQuestions);
+          this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
+                                                              this.maxQuestions);
+          this.trackResult()
+            .catch(() => {
+              // What to do here?
+            });
+        },
         nextQuestion() {
           if ((this.maxQuestions - 1) > this.currentQuestion) {
             this.currentQuestion += 1;
             this.restartCounter();
           } else {
-            this.stopInterval();
-            this.hasStarted = false;
-            this.gameOver = true;
-            this.rating = this.getRating(this.correctAnswers.length, this.maxQuestions);
-            this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
-                                                               this.maxQuestions);
-            this.trackResult();
+            this.closeGame();
           }
         },
         getPercentageCorrect(correct, total) {

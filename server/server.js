@@ -16,6 +16,8 @@ app.get('/api/questions', (req, res) => {
 });
 
 app.post('/api/track-quiz-finished', (req, res) => {
+  if (!uri) { res.sendStatus(500).end(); }
+
   MongoClient.connect(uri, (err, db) => {
     if (err) {
       res.sendStatus(503).end(); // Service not available
@@ -30,8 +32,6 @@ app.post('/api/track-quiz-finished', (req, res) => {
         res.end();
       }
     });
-
-    MongoClient.close();
   });
 });
 
