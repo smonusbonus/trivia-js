@@ -141,6 +141,7 @@ export default {
           const data = JSON.stringify({
             timestamp: Date.now(),
             eventType: 'quiz-finished',
+            questionIds: this.questions.map(question => question.id),
             questions: this.questions.map(question => question.question),
             answers: this.answers,
             percentageCorrect: this.percentageCorrect,

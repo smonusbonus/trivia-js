@@ -1,6 +1,6 @@
 module.exports = [
   {
-    id: '011fc18a-e274-4100-b4d7-56760850eeda',
+    id: '011fc18ae2744100b4d756760850eeda',
     question: 'What will <code>typeof null</code> return?',
     answers: ['\'object\'', '\'null\'', '\'undefined\'', '\'number\''],
     solution: 0,
@@ -8,7 +8,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#null',
   },
   {
-    id: 'e4c8875c-2a16-4917-a792-29b4261fc127',
+    id: 'e4c8875c2a164917a79229b4261fc127',
     question: 'Which Array method changes the Array itself?',
     answers: [
       'Array.prototype.splice()',
@@ -19,7 +19,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
   },
   {
-    id: '2651089d-b07a-41b3-8326-18909821a55c',
+    id: '2651089db07a41b3832618909821a55c',
     question: 'Which operator is the only JavaScript operator that takes three operands?',
     answers: [
       'The conditional (ternary) operator',
@@ -31,7 +31,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator'
   },
   {
-    id: 'db524723-1bb7-45f2-ac8c-93b3dac980bd',
+    id: 'db5247231bb745f2ac8c93b3dac980bd',
     question: 'What does the acronym ECMA in ECMAScript stand for?',
     answers: [
       'European Computer Manufacturers Association',
@@ -43,7 +43,7 @@ module.exports = [
     source: 'https://en.wikipedia.org/wiki/Ecma_International',
   },
   {
-    id: '15168519-8892-4da2-b2fd-c467c6530678',
+    id: '1516851988924da2b2fdc467c6530678',
     question: 'Who is the creator of the JavaScript programming language?',
     answers: [
       'Brendan Eich',
@@ -56,7 +56,7 @@ module.exports = [
     source: 'https://en.wikipedia.org/wiki/Brendan_Eich',
   },
   {
-    id: '502845c7-d26f-4ad9-ad42-125c54949501',
+    id: '502845c7d26f4ad9ad42125c54949501',
     question: 'When was JavaScript released for the first time?',
     answers: [
       '1995',
@@ -69,7 +69,7 @@ module.exports = [
     source: 'https://en.wikipedia.org/wiki/JavaScript',
   },
   {
-    id: 'db241875-bfd0-4080-a75e-7b0967353f72',
+    id: 'db241875bfd04080a75e7b0967353f72',
     question: 'What differentiates Array.prototype.forEach() from Array.prototype.map()?',
     answers: [
       'It returns undefined',
@@ -81,7 +81,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Return_value',
   },
   {
-    id: '801a3bf6-5110-410d-bfef-8d1d569b748f',
+    id: '801a3bf65110410dbfef8d1d569b748f',
     question: 'What will <code>parseInt(\'abc123\')</code> return?',
     answers: ['NaN', '123', '1', 'Throws an error'],
     solution: 0,
@@ -89,7 +89,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt',
   },
   {
-    id: '81a5f94a-38dd-490a-aef5-6fa3c3f9012a',
+    id: '81a5f94a38dd490aaef56fa3c3f9012a',
     question: 'What is the result of computing <code>35 / Infinity</code>?',
     answers: ['0', 'NaN', 'Infinity', 'Throws an error'],
     solution: 0,
@@ -97,7 +97,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity',
   },
   {
-    id: '932dc516-2569-4dde-8276-761196b22eed',
+    id: '932dc51625694dde8276761196b22eed',
     question: 'What was the original name of JavaScript?',
     answers: ['Mocha', 'Java', 'LiveScript', 'ECMAScript'],
     solution: 0,
@@ -105,7 +105,7 @@ module.exports = [
     source: 'https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript',
   },
   {
-    id: 'ed6d28ce-c489-4d3a-803d-7212153325bc',
+    id: 'ed6d28cec4894d3a803d7212153325bc',
     question: 'What does the term AJAX stand for?',
     answers: ['Asynchronous JavaScript and XML', 'Asynchronous JavaScript Attax', 'Accessible Javascript and XML'],
     solution: 0,
@@ -113,7 +113,7 @@ module.exports = [
     source: 'http://adaptivepath.org/ideas/ajax-new-approach-web-applications/',
   },
   {
-    id: 'c77b86fb-8920-40db-834d-56bab8ba8672',
+    id: 'c77b86fb892040db834d56bab8ba8672',
     question: 'Which technology is one of the cornerstones of AJAX?',
     answers: ['XMLHttpRequest', 'Web Storage API', 'Cryptography', 'FTP'],
     solution: 0,
@@ -121,7 +121,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest',
   },
   {
-    id: 'ae7b6508-f265-44fc-8b5f-36b8c1695a68',
+    id: 'ae7b6508f26544fc8b5f36b8c1695a68',
     question: 'What differentiates <code>let</code> from <code>var</code>?',
     answers: ['let supports block scope', 'var can only be assigned once', 'Variables declared with var are always global'],
     solution: 0,
@@ -129,7 +129,7 @@ module.exports = [
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let',
   },
   {
-    id: '9f1a75fc-284c-4c3a-9b48-01b6b91d0151',
+    id: '9f1a75fc284c4c3a9b4801b6b91d0151',
     question: 'What will the following piece of JavaScript return? <code>[1, 2, 3].splice(2)</code>',
     answers: ['[3]', '[1, 2]', 'undefined', '[1]'],
     solution: 0,
