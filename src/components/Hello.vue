@@ -11,7 +11,10 @@
       </span>
       <span class="time">
         <span v-if="game.hasStarted && !game.gameOver">
-          Time: <strong>{{ game.timeLeft / 1000 }}s</strong>
+          Time:
+          <strong v-bind:class="{ 'text-danger': game.timeLeft <= 3000 }">
+            {{ game.timeLeft / 1000 }}s
+          </strong>
         </span>
       </span>
     </header>
@@ -213,6 +216,10 @@ header span strong {
 
 .time {
   text-align: right;
+}
+
+.text-danger {
+  color: #FF6630;
 }
 
 .github {
