@@ -64,6 +64,7 @@ export default {
       game: {
         answers: [],
         questions: [],
+        questionSet: [],
         correctAnswers: [],
         currentQuestion: 0,
         falseAnswers: [],
@@ -134,11 +135,27 @@ export default {
           const percentage = this.getPercentageCorrect(correct, total);
           return 5 * (percentage / 100);
         },
-        getQuestions(limit) {
-          return Vue.http.get('/api/questions').then((response) => {
-            const randomizedQuestions = fisherYatesShuffle(response.body);
-            return randomizedQuestions.slice(0, limit);
+        getQuestionSet() {
+          return new Promise((resolve, reject) => {
+            if (this.questionSet.length > 0) {
+              resolve(this.questionSet);
+            } else {
+              Vue.http.get('/api/questions')
+                .then((response) => {
+                  resolve(this.questionSet = response.body);
+                })
+                .catch((error) => {
+                  reject(error);
+                });
+            }
           });
+        },
+        getQuestions(limit) {
+          return this.getQuestionSet()
+            .then((questionSet) => {
+              const randomizedQuestions = fisherYatesShuffle(questionSet);
+              return randomizedQuestions.slice(0, limit);
+            });
         },
         trackResult() {
           const data = JSON.stringify({
