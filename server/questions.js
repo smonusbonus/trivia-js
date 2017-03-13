@@ -136,4 +136,20 @@ module.exports = [
     explanation: 'Return value: An array containing the deleted elements.',
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
   },
+  {
+    id: 'a190e51b03804b00ba6b2eee9dbdcc19',
+    question: 'What will the following piece of JavaScript return? <code>[1, null, 3].join()</code>',
+    answers: ['\'13\'', '\'1null3\'', '\'103\'', 'Throws an error'],
+    solution: 0,
+    explanation: 'The string conversions of all array elements are joined into one string. If an element is undefined or null, it is converted to the empty string.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join',
+  },
+  {
+    id: 'a190e51b03804b00ba6b2eee9dbdcc19',
+    question: 'What will the following piece of JavaScript return? <code>[1, 2, 3].indexOf(1, 2)</code>',
+    answers: ['-1', '0', '1', 'Throws an error'],
+    solution: 0,
+    explanation: 'The second parameter, fromIndex, specifies the index to start the search at. If the index is greater than or equal to the array\'s length, -1 is returned, which means the array will not be searched.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf',
+  },
 ];
