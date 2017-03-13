@@ -21,7 +21,7 @@ app.post('/api/track-quiz-finished', (req, res) => {
       res.sendStatus(503).end(); // Service not available
     }
     const quizFinishedEvents = db.collection('quiz-finished-events');
-    return quizFinishedEvents.insert(req.body, (error, result) => {
+    quizFinishedEvents.insert(req.body, (error, result) => {
       if (error) {
         res.sendStatus(500).end();
       } else {
@@ -30,6 +30,8 @@ app.post('/api/track-quiz-finished', (req, res) => {
         res.end();
       }
     });
+
+    MongoClient.close();
   });
 });
 
