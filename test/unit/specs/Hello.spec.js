@@ -1,12 +1,14 @@
 import Vue from 'vue';
+import vueResource from 'vue-resource';
 import Hello from '@/components/Hello';
+
+Vue.use(vueResource);
 
 describe('Hello.vue', () => {
   it('should render correct contents', () => {
     const Constructor = Vue.extend(Hello);
     const vm = new Constructor().$mount();
-    expect(vm.$el.querySelector('.hello h1').textContent)
-      .to.equal('Welcome to JS Trivia!');
+    expect(vm.$el.querySelector('.hello h1').textContent).to.equal('Welcome!');
   });
 
   describe('nextQuestion()', () => {
@@ -17,11 +19,11 @@ describe('Hello.vue', () => {
       expect(vm.game.currentQuestion).to.equal(1);
     });
 
-    it('should stop game if there are no more questions', () => {
+    it('should stop game after 10 questions', () => {
       const vm = new Vue(Hello).$mount();
-      vm.game.currentQuestion = 3;
+      vm.game.currentQuestion = 9;
       vm.game.nextQuestion();
-      expect(vm.game.currentQuestion).to.equal(3);
+      expect(vm.game.currentQuestion).to.equal(9);
       expect(vm.game.gameOver).to.equal(true);
     });
   });
