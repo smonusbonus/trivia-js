@@ -41,6 +41,7 @@ code {
   background-color: #f6f6f6;
   font-weight: inherit;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 h1 {
