@@ -2,7 +2,9 @@
   <div v-if="game.gameOver">
     <div class="results">
       <div>
-        <h1>Well done!</h1>
+        <h1 v-if="game.rating >= 3">Well done!</h1>
+        <h1 v-if="game.rating < 3 && game.rating >= 2">Not bad!</h1>
+        <h1 v-if="game.rating < 2">Better luck next time!</h1>
         <div class="rating">
           <i class="fa" v-for="(star, index) in [1, 2, 3, 4, 5]" v-bind:class="{
             'fa-star-o': game.rating < (index + 0.5),
