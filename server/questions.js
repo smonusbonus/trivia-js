@@ -152,4 +152,28 @@ module.exports = [
     explanation: 'The second parameter, fromIndex, specifies the index to start the search at. If the index is greater than or equal to the array\'s length, -1 is returned, which means the array will not be searched.',
     source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf',
   },
+  {
+    id: 'dda2eb4e0b164e708e36e14dc0918ccf',
+    question: 'What will the following piece of JavaScript return? <code>[1, 2, 3].every(num => num !== null)</code>',
+    answers: ['true', 'false', '[1, 2, 3]', 'Throws an error'],
+    solution: 0,
+    explanation: 'The every() method tests whether all elements in the array pass the test implemented by the provided function.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every',
+  },
+  {
+    id: '84bef438fb9544f988d25429671a86c7',
+    question: 'What will the following piece of JavaScript return? <code>[1, \'a\'].filter(elem => typeof elem !== \'number\')</code>',
+    answers: ['[\'a\']', '[1]', '[]', '[1, \'a\']'],
+    solution: 0,
+    explanation: 'The filter() method creates a new array with all elements that pass the test implemented by the provided function.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter',
+  },
+  {
+    id: '03da42f7d2764efebcd21f338b3fa70e',
+    question: 'What will the following piece of JavaScript return? <code>Array.from(\'abc\')</code>',
+    answers: ['[\'a\', \'b\', \'c\']', '[\'abc\']', '[]', '\'abc\''],
+    solution: 0,
+    explanation: 'The Array.from() method creates a new Array instance from an array-like or iterable object.',
+    source: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from',
+  },
 ];
