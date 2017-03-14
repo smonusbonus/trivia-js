@@ -27,14 +27,12 @@ app.post('/api/track-quiz-finished', (req, res) => {
       return;
     }
     const quizFinishedEvents = db.collection('quiz-finished-events');
-    quizFinishedEvents.insert(req.body, (error, result) => {
+    quizFinishedEvents.insert(req.body, (error) => {
       if (error) {
         res.sendStatus(500).end();
         return;
       }
-      res.sendStatus(200);
-      res.send(result);
-      res.end();
+      res.sendStatus(200).end();
     });
   });
 });
