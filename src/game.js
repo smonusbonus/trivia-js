@@ -1,7 +1,8 @@
 class Game {
-  constructor(questions) {
+  constructor(questions, finishedCallback) {
     Object.assign(this, {
       questions,
+      finishedCallback,
       answers: [],
       correctAnswers: [],
       currentQuestion: 0,
@@ -57,10 +58,14 @@ class Game {
     this.gameOver = true;
     this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
                                                         this.maxQuestions);
-    // this.trackResult()
-    //   .catch(() => {
-    //     // What to do here?
-    //   });
+    const resultData = {
+      questionIds: this.questions.map(question => question.id),
+      questions: this.questions.map(question => question.question),
+      answers: this.answers,
+      percentageCorrect: this.percentageCorrect,
+      totalScore: this.totalScore,
+    };
+    this.finishedCallback(resultData);
   }
 
   nextQuestion() {
@@ -74,6 +79,10 @@ class Game {
 
   getPercentageCorrect() {
     return (this.correctAnswers.length / this.maxQuestions) * 100;
+  }
+
+  wasCorrectlyAnswered(idx) {
+    return this.correctAnswers.includes(idx);
   }
 }
 export default Game;

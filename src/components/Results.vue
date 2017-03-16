@@ -39,14 +39,14 @@
         <p>
           <strong>Your Answer:</strong>
           {{ game.answers[index] }}
-          <div class="correct" v-if="wasCorrectlyAnswered(game.correctAnswers, index)">
+          <div class="correct" v-if="game.wasCorrectlyAnswered(index)">
             Correct!
           </div>
-          <div class="false" v-if="!wasCorrectlyAnswered(game.correctAnswers, index)">
+          <div class="false" v-if="!game.wasCorrectlyAnswered(index)">
             False!
           </div>
         </p>
-        <div v-if="!wasCorrectlyAnswered(game.correctAnswers, index)">
+        <div v-if="!game.wasCorrectlyAnswered(index)">
           <p>Solution: {{ question.answers[question.solution] }}</p>
           <p class="explanation">{{ question.explanation }}</p>
         </div>
@@ -60,11 +60,7 @@ export default {
   name: 'results',
   props: ['game'],
   data() {
-    return {
-      wasCorrectlyAnswered(correctAnswers, idx) {
-        return correctAnswers.indexOf(idx) >= 0;
-      },
-    };
+    return {};
   },
 };
 </script>

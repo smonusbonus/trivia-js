@@ -64,7 +64,7 @@ export default {
       startGame() {
         this.getQuestions(10)
           .then((questions) => {
-            this.game = new Game(questions);
+            this.game = new Game(questions, this.trackResult);
             this.game.start();
           });
       },
@@ -90,15 +90,15 @@ export default {
             return randomizedQuestions.slice(0, limit);
           });
       },
-      trackResult() {
+      trackResult(resultData) {
         const data = JSON.stringify({
           timestamp: Date.now(),
           eventType: 'quiz-finished',
-          questionIds: this.game.questions.map(question => question.id),
-          questions: this.game.questions.map(question => question.question),
-          answers: this.game.answers,
-          percentageCorrect: this.game.percentageCorrect,
-          totalScore: this.game.totalScore,
+          questionIds: resultData.questionIds,
+          questions: resultData.questions,
+          answers: resultData.answers,
+          percentageCorrect: resultData.percentageCorrect,
+          totalScore: resultData.totalScore,
         });
         return Vue.http.post('/api/track-quiz-finished', data, { emulateJSON: true });
       },
