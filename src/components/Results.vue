@@ -16,7 +16,7 @@
           You answered {{ game.percentageCorrect }}% correctly
         </p>
         <small class="text-muted">
-          ({{ game.totalScore }} of {{ game.maxPoints() }} max. points)
+          ({{ game.totalScore }} of {{ game.maxPoints }} max. points)
         </small>
       </div>
       <div class="actions">
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div id="solutions" class="summary">
-      <div class="summary-block" v-for="(question, index) in questions">
+      <div class="summary-block" v-for="(question, index) in game.questions">
         <div class="summary-block-header">
           <p class="question-number">{{ index + 1 }}. Question</p>
           <a class="source" target="_blank" :href="question.source">Source</a>
@@ -58,7 +58,7 @@
 <script>
 export default {
   name: 'results',
-  props: ['questions', 'game'],
+  props: ['game'],
   data() {
     return {
       wasCorrectlyAnswered(correctAnswers, idx) {

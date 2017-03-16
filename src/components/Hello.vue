@@ -26,18 +26,15 @@
         <p>We'll ask 10 random questions and you've got 10 seconds to answer each one. The quicker you answer, the more points you get. Ready?</p>
       </div>
       <div>
-        <button type="button" v-on:click="game.startGame()" class="btn btn-primary">
+        <button type="button" v-on:click="startGame()" class="btn btn-primary">
           Got it, let's go!
         </button>
       </div>
     </div>
     <div class="game" v-if="game.hasStarted && !game.gameOver">
-      <question
-        class="question"
-        :question="game.questions[game.currentQuestion]"
-        :game="game"></question>
+      <question class="question" :game="game"></question>
     </div>
-    <results :questions="game.questions" :game="game"></results>
+    <results :game="game"></results>
     <div class="github" v-if="!game.hasStarted">
       <a href="https://github.com/smonusbonus/js-trivia" target="_blank">
         <i class="fa fa-github" aria-hidden="true"></i>
@@ -50,6 +47,7 @@
 <script>
 import Vue from 'vue';
 import fisherYatesShuffle from 'fisher-yates';
+import Game from '../game';
 import Question from './Question';
 import Results from './Results';
 
@@ -61,120 +59,48 @@ export default {
   },
   data() {
     return {
-      game: {
-        answers: [],
-        questions: [],
-        questionSet: [],
-        correctAnswers: [],
-        currentQuestion: 0,
-        falseAnswers: [],
-        hasStarted: false,
-        gameOver: false,
-        totalScore: 0,
-        maxQuestions: 10,
-        maxPoints: () => this.game.maxQuestions * 100,
-        answerTime: 10000,
-        timeLeft: 0,
-        currentInterval: null,
-        startGame() {
-          this.getQuestions(this.maxQuestions)
-            .then((result) => {
-              this.questions = result;
-              this.hasStarted = true;
-              this.gameOver = false;
-              this.correctAnswers = [];
-              this.answers = [];
-              this.falseAnswers = [];
-              this.totalScore = 0;
-              this.currentQuestion = 0;
-              this.restartCounter();
-            })
-            .catch((error) => {
-              throw new Error(error.message);
-            });
-        },
-        stopInterval() {
-          clearInterval(this.currentInterval);
-        },
-        restartCounter() {
-          this.timeLeft = this.answerTime;
-
-          this.stopInterval();
-          this.currentInterval = setInterval(() => {
-            if (this.timeLeft !== 0) {
-              this.timeLeft -= 1000;
-            } else {
-              this.stopInterval();
-              this.falseAnswers.push(this.currentQuestion);
-              this.answers.push(null);
-              this.nextQuestion();
-            }
-          }, 1000);
-        },
-        closeGame() {
-          this.stopInterval();
-          this.hasStarted = false;
-          this.gameOver = true;
-          this.rating = this.getRating(this.correctAnswers.length, this.maxQuestions);
-          this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
-                                                              this.maxQuestions);
-          this.trackResult()
-            .catch(() => {
-              // What to do here?
-            });
-        },
-        nextQuestion() {
-          if ((this.maxQuestions - 1) > this.currentQuestion) {
-            this.currentQuestion += 1;
-            this.restartCounter();
+      game: {},
+      questionSet: [],
+      startGame() {
+        this.getQuestions(10)
+          .then((questions) => {
+            this.game = new Game(questions);
+            this.game.start();
+          });
+      },
+      getQuestionSet() {
+        return new Promise((resolve, reject) => {
+          if (this.questionSet.length > 0) {
+            resolve(this.questionSet);
           } else {
-            this.closeGame();
+            Vue.http.get('/api/questions')
+              .then((response) => {
+                resolve(this.questionSet = response.body);
+              })
+              .catch((error) => {
+                reject(error);
+              });
           }
-        },
-        getPercentageCorrect(correct, total) {
-          // magic number, 100 is the max. which can be reached per question
-          // this should be made explicit somewhere
-          return (correct / total) * 100;
-        },
-        getRating(correct, total) {
-          if (correct === 0) { return 0; }
-          const percentage = this.getPercentageCorrect(correct, total);
-          return 5 * (percentage / 100);
-        },
-        getQuestionSet() {
-          return new Promise((resolve, reject) => {
-            if (this.questionSet.length > 0) {
-              resolve(this.questionSet);
-            } else {
-              Vue.http.get('/api/questions')
-                .then((response) => {
-                  resolve(this.questionSet = response.body);
-                })
-                .catch((error) => {
-                  reject(error);
-                });
-            }
+        });
+      },
+      getQuestions(limit) {
+        return this.getQuestionSet()
+          .then((questionSet) => {
+            const randomizedQuestions = fisherYatesShuffle(questionSet);
+            return randomizedQuestions.slice(0, limit);
           });
-        },
-        getQuestions(limit) {
-          return this.getQuestionSet()
-            .then((questionSet) => {
-              const randomizedQuestions = fisherYatesShuffle(questionSet);
-              return randomizedQuestions.slice(0, limit);
-            });
-        },
-        trackResult() {
-          const data = JSON.stringify({
-            timestamp: Date.now(),
-            eventType: 'quiz-finished',
-            questionIds: this.questions.map(question => question.id),
-            questions: this.questions.map(question => question.question),
-            answers: this.answers,
-            percentageCorrect: this.percentageCorrect,
-            totalScore: this.totalScore,
-          });
-          return Vue.http.post('/api/track-quiz-finished', data, { emulateJSON: true });
-        },
+      },
+      trackResult() {
+        const data = JSON.stringify({
+          timestamp: Date.now(),
+          eventType: 'quiz-finished',
+          questionIds: this.game.questions.map(question => question.id),
+          questions: this.game.questions.map(question => question.question),
+          answers: this.game.answers,
+          percentageCorrect: this.game.percentageCorrect,
+          totalScore: this.game.totalScore,
+        });
+        return Vue.http.post('/api/track-quiz-finished', data, { emulateJSON: true });
       },
     };
   },

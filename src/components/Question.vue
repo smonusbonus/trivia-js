@@ -1,11 +1,11 @@
 <template>
   <div class="question">
-    <h2 v-html="question.question"></h2>
+    <h2 v-html="game.questions[game.currentQuestion].question"></h2>
     <div>
       <button
         type="button"
         class="btn btn-default"
-        v-for="answer in shuffleAnswers(question.answers)"
+        v-for="answer in shuffleAnswers(game.questions[game.currentQuestion].answers)"
         v-on:click="checkCorrect(answer)">
         {{ answer }}
       </button>
@@ -19,12 +19,13 @@ import fisherYatesShuffle from 'fisher-yates';
 
 export default {
   name: 'question',
-  props: ['question', 'game'],
+  props: ['game'],
   data() {
     return {
       checkCorrect: (answer) => {
-        const indexSolution = this.question.solution;
-        const indexGivenAnswer = this.question.answers.indexOf(answer);
+        const question = this.game.questions[this.game.currentQuestion];
+        const indexSolution = question.solution;
+        const indexGivenAnswer = question.answers.indexOf(answer);
         this.game.answers.push(answer);
 
         if (indexSolution === indexGivenAnswer) {
