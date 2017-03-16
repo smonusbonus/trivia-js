@@ -154,7 +154,7 @@ module.exports = [
   },
   {
     id: 'dda2eb4e0b164e708e36e14dc0918ccf',
-    question: 'What will the following piece of JavaScript return? <code>[1, 2, 3].every(num => num !== null)</code>',
+    question: 'What will the following piece of JavaScript return? <code>[1, 2, 3].every(n => n !== null)</code>',
     answers: ['true', 'false', '[1, 2, 3]', 'Throws an error'],
     solution: 0,
     explanation: 'The every() method tests whether all elements in the array pass the test implemented by the provided function.',
