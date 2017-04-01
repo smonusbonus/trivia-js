@@ -9,9 +9,40 @@ describe('Game', () => {
     /* eslint-enable no-underscore-dangle */
   });
 
-  it('should return rating', () => {
-    const game = new Game([]);
-    expect(game.rating).to.equal(0);
+  describe('maxPoints()', () => {
+    it('should calculate maximum points based on number of questions and points per question', () => {
+      const game = new Game(questionsFixture);
+      expect(game.maxPoints).to.equal(1000);
+    });
+  });
+
+  describe('rating()', () => {
+    it('should return 0 if no questions were answered yet', () => {
+      const game = new Game(questionsFixture);
+      expect(game.rating).to.equal(0);
+    });
+
+    it('should return a 2.5 rating if half the questions were answered correctly', () => {
+      const game = new Game(questionsFixture);
+      game.correctAnswers = [0, 1, 2, 3, 4];
+      expect(game.rating).to.equal(2.5);
+    });
+
+    it('should return a 5 rating if all questions were answered correctly', () => {
+      const game = new Game(questionsFixture);
+      game.correctAnswers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      expect(game.rating).to.equal(5);
+    });
+  });
+
+  describe('start()', () => {
+    it('should reset time left', () => {
+      const game = new Game(questionsFixture);
+      game.timeLeft = 5000;
+      game.start();
+      expect(game.timeLeft).to.not.equal(5000);
+      expect(game.hasStarted).to.equal(true);
+    });
   });
 
   describe('nextQuestion()', () => {
@@ -41,13 +72,15 @@ describe('Game', () => {
       expect(game.currentInterval).to.not.equal('bla');
     });
 
-    it('should treat answer as false when time is over', () => {
+    it('should treat answer as false when time is over', (done) => {
       const game = new Game(questionsFixture);
       game.restartCounter();
       game.timeLeft = 0;
+      expect(game.falseAnswers.length).to.equal(0);
       window.setTimeout(() => {
         expect(game.falseAnswers.length).to.equal(1);
-      }, 1000);
+        done();
+      }, 1100);
     });
   });
 
@@ -59,6 +92,47 @@ describe('Game', () => {
       expect(result1).to.equal(true);
       const result2 = game.isCorrect('wrong');
       expect(result2).to.equal(false);
+    });
+  });
+
+  describe('handleAnswer(answer)', () => {
+    it('should store answer', () => {
+      const game = new Game(questionsFixture);
+      game.start();
+      expect(game.answers.length).to.equal(0);
+      game.handleAnswer('lorem');
+      expect(game.answers.length).to.equal(1);
+    });
+
+    it('should increase score if answer is correct', () => {
+      const game = new Game(questionsFixture);
+      game.start();
+      game.currentQuestion = 4;
+      const oldScore = game.totalScore;
+      expect(game.isCorrect('Brendan Eich')).to.equal(true);
+      game.handleAnswer('Brendan Eich');
+      expect(game.totalScore).to.be.above(oldScore);
+    });
+
+    it('should proceed to next question either way', () => {
+      const game = new Game(questionsFixture);
+      game.start();
+      game.currentQuestion = 4;
+      game.handleAnswer('Brendan Eich'); // correct answer
+      expect(game.currentQuestion).to.equal(5);
+      game.handleAnswer('wrong answer');
+      expect(game.currentQuestion).to.equal(6);
+    });
+  });
+
+  describe('wasCorrectlyAnswered(idx)', () => {
+    it('should check if index is associated with correctly answered question', () => {
+      const game = new Game(questionsFixture);
+      game.start();
+      game.correctAnswers.push(0);
+      expect(game.wasCorrectlyAnswered(1)).to.equal(false);
+      game.correctAnswers.push(1);
+      expect(game.wasCorrectlyAnswered(1)).to.equal(true);
     });
   });
 });

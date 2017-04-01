@@ -24,7 +24,7 @@ class Game {
 
   get rating() {
     if (this.correctAnswers.length === 0) { return 0; }
-    const percentage = this.getPercentageCorrect(this.correctAnswers.length, this.totalScore);
+    const percentage = this.getPercentageCorrect();
     return 5 * (percentage / 100);
   }
 
@@ -57,8 +57,8 @@ class Game {
     this.stopInterval();
     this.hasStarted = false;
     this.gameOver = true;
-    this.percentageCorrect = this.getPercentageCorrect(this.correctAnswers.length,
-                                                        this.maxQuestions);
+    this.percentageCorrect = this.getPercentageCorrect();
+
     const resultData = {
       questionIds: this.questions.map(question => question.id),
       questions: this.questions.map(question => question.question),
@@ -82,11 +82,7 @@ class Game {
     const question = this.questions[this.currentQuestion];
     const indexSolution = question.solution;
     const indexGivenAnswer = question.answers.indexOf(answer);
-
-    if (indexSolution === indexGivenAnswer) {
-      return true;
-    }
-    return false;
+    return indexSolution === indexGivenAnswer;
   }
 
   handleAnswer(answer) {
@@ -107,7 +103,7 @@ class Game {
   }
 
   wasCorrectlyAnswered(idx) {
-    return this.correctAnswers.includes(idx);
+    return this.correctAnswers.indexOf(idx) !== -1;
   }
 }
 export default Game;
