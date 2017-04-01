@@ -10,15 +10,16 @@ class Game {
       hasStarted: false,
       gameOver: false,
       totalScore: 0,
-      maxQuestions: 10,
-      answerTime: 10000,
       timeLeft: 0,
       currentInterval: null,
+      ANSWER_TIME: 10000,
+      MAX_QUESTIONS: 10,
+      POINTS_PER_QUESTION: 100,
     });
   }
 
   get maxPoints() {
-    return this.maxQuestions * 100;
+    return this.MAX_QUESTIONS * this.POINTS_PER_QUESTION;
   }
 
   get rating() {
@@ -37,7 +38,7 @@ class Game {
   }
 
   restartCounter() {
-    this.timeLeft = this.answerTime;
+    this.timeLeft = this.ANSWER_TIME;
 
     this.stopInterval();
     this.currentInterval = setInterval(() => {
@@ -69,7 +70,7 @@ class Game {
   }
 
   nextQuestion() {
-    if ((this.maxQuestions - 1) > this.currentQuestion) {
+    if ((this.MAX_QUESTIONS - 1) > this.currentQuestion) {
       this.currentQuestion += 1;
       this.restartCounter();
     } else {
@@ -102,7 +103,7 @@ class Game {
   }
 
   getPercentageCorrect() {
-    return (this.correctAnswers.length / this.maxQuestions) * 100;
+    return (this.correctAnswers.length / this.MAX_QUESTIONS) * 100;
   }
 
   wasCorrectlyAnswered(idx) {
