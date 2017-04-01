@@ -85,7 +85,7 @@ class Game {
     return indexSolution === indexGivenAnswer;
   }
 
-  handleAnswer(answer) {
+  recordAnswerAndProceed(answer) {
     this.answers.push(answer);
 
     if (this.isCorrect(answer)) {

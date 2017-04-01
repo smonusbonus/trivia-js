@@ -95,12 +95,12 @@ describe('Game', () => {
     });
   });
 
-  describe('handleAnswer(answer)', () => {
+  describe('recordAnswerAndProceed(answer)', () => {
     it('should store answer', () => {
       const game = new Game(questionsFixture);
       game.start();
       expect(game.answers.length).to.equal(0);
-      game.handleAnswer('lorem');
+      game.recordAnswerAndProceed('lorem');
       expect(game.answers.length).to.equal(1);
     });
 
@@ -110,7 +110,7 @@ describe('Game', () => {
       game.currentQuestion = 4;
       const oldScore = game.totalScore;
       expect(game.isCorrect('Brendan Eich')).to.equal(true);
-      game.handleAnswer('Brendan Eich');
+      game.recordAnswerAndProceed('Brendan Eich');
       expect(game.totalScore).to.be.above(oldScore);
     });
 
@@ -118,9 +118,9 @@ describe('Game', () => {
       const game = new Game(questionsFixture);
       game.start();
       game.currentQuestion = 4;
-      game.handleAnswer('Brendan Eich'); // correct answer
+      game.recordAnswerAndProceed('Brendan Eich'); // correct answer
       expect(game.currentQuestion).to.equal(5);
-      game.handleAnswer('wrong answer');
+      game.recordAnswerAndProceed('wrong answer');
       expect(game.currentQuestion).to.equal(6);
     });
   });
