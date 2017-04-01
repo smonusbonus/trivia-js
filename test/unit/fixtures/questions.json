@@ -1,0 +1,107 @@
+[
+  {
+    "id": "011fc18ae2744100b4d756760850eeda",
+    "question": "What will <code>typeof null</code> return?",
+    "answers": ["\"object\"", "\"null\"", "\"undefined\"", "\"number\""],
+    "solution": 0,
+    "explanation": "In the first implementation of JavaScript, JavaScript values were represented as a type tag and a value. The type tag for objects was 0. null was represented as the NULL pointer (0x00 in most platforms). Consequently, null had 0 as type tag, hence the bogus typeof return value.",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#null"
+  },
+  {
+    "id": "e4c8875c2a164917a79229b4261fc127",
+    "question": "Which Array method changes the Array itself?",
+    "answers": [
+      "Array.prototype.splice()",
+      "Array.prototype.slice()"
+    ],
+    "solution": 0,
+    "explanation": "The splice() method changes the contents of an array by removing existing elements and/or adding new elements.",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+  },
+  {
+    "id": "2651089db07a41b3832618909821a55c",
+    "question": "Which operator is the only JavaScript operator that takes three operands?",
+    "answers": [
+      "The conditional (ternary) operator",
+      "The assignment operator",
+      "Logical OR (||)"
+    ],
+    "solution": 0,
+    "explanation": "The conditional (ternary) operator is the only JavaScript operator that takes three operands. This operator is frequently used as a shortcut for the if statement.",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
+  },
+  {
+    "id": "db5247231bb745f2ac8c93b3dac980bd",
+    "question": "What does the acronym ECMA in ECMAScript stand for?",
+    "answers": [
+      "European Computer Manufacturers Association",
+      "Electronic Computer Manufacturers Association",
+      "Elitist Cheese Manufacturers Association"
+    ],
+    "solution": 0,
+    "explanation": "Ecma International is an international private (membership-based) non-profit standards organization for information and communication systems. It acquired its current name in 1994, when the European Computer Manufacturers Association (ECMA) changed its name to reflect the organization\"s global reach and activities.",
+    "source": "https://en.wikipedia.org/wiki/Ecma_International"
+  },
+  {
+    "id": "1516851988924da2b2fdc467c6530678",
+    "question": "Who is the creator of the JavaScript programming language?",
+    "answers": [
+      "Brendan Eich",
+      "Tim Berners-Lee",
+      "Dennis Ritchie",
+      "Steve Wozniak"
+    ],
+    "solution": 0,
+    "explanation": "Brendan Eich is an American technologist and creator of the JavaScript programming language. He co-founded the Mozilla project, the Mozilla Foundation and the Mozilla Corporation, and served as the Mozilla Corporation\"s chief technical officer and briefly its chief executive officer.",
+    "source": "https://en.wikipedia.org/wiki/Brendan_Eich"
+  },
+  {
+    "id": "502845c7d26f4ad9ad42125c54949501",
+    "question": "When was JavaScript released for the first time?",
+    "answers": [
+      "1995",
+      "1994",
+      "1996",
+      "1999"
+    ],
+    "solution": 0,
+    "explanation": "Although it was developed under the name Mocha, the language was officially called LiveScript when it first shipped in beta releases of Netscape Navigator 2.0 in September 1995, but it was renamed JavaScript when it was deployed in the Netscape Navigator 2.0 beta 3 in December.",
+    "source": "https://en.wikipedia.org/wiki/JavaScript"
+  },
+  {
+    "id": "db241875bfd04080a75e7b0967353f72",
+    "question": "What differentiates Array.prototype.forEach() from Array.prototype.map()?",
+    "answers": [
+      "It returns undefined",
+      "Can also be used for objects",
+      "The callback function is invoked with the current index"
+    ],
+    "solution": 0,
+    "explanation": "Whereas Array.prototype.map() returns an array consisting of the values returned by the callback function Array.prototype.forEach() always returns undefined.",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Return_value"
+  },
+  {
+    "id": "801a3bf65110410dbfef8d1d569b748f",
+    "question": "What will <code>parseInt(\"abc123\")</code> return?",
+    "answers": ["NaN", "123", "1", "Throws an error"],
+    "solution": 0,
+    "explanation": "An integer number parsed from the given string. If the first character cannot be converted to a number, NaN is returned.",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt"
+  },
+  {
+    "id": "81a5f94a38dd490aaef56fa3c3f9012a",
+    "question": "What is the result of computing <code>35 / Infinity</code>?",
+    "answers": ["0", "NaN", "Infinity", "Throws an error"],
+    "solution": 0,
+    "explanation": "This value behaves mathematically like infinity; for example, any positive number multiplied by Infinity is Infinity, and anything divided by Infinity is 0.",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity"
+  },
+  {
+    "id": "932dc51625694dde8276761196b22eed",
+    "question": "What was the original name of JavaScript?",
+    "answers": ["Mocha", "Java", "LiveScript", "ECMAScript"],
+    "solution": 0,
+    "explanation": "JavaScript was not always known as JavaScript: the original name was Mocha, a name chosen by Marc Andreessen, founder of Netscape.",
+    "source": "https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript"
+  }
+]
