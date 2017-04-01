@@ -77,13 +77,21 @@ class Game {
     }
   }
 
-  checkCorrect(answer) {
+  isCorrect(answer) {
     const question = this.questions[this.currentQuestion];
     const indexSolution = question.solution;
     const indexGivenAnswer = question.answers.indexOf(answer);
-    this.answers.push(answer);
 
     if (indexSolution === indexGivenAnswer) {
+      return true;
+    }
+    return false;
+  }
+
+  handleAnswer(answer) {
+    this.answers.push(answer);
+
+    if (this.isCorrect(answer)) {
       this.totalScore += 10 * (this.timeLeft / 1000);
       this.correctAnswers.push(this.currentQuestion);
       this.nextQuestion();

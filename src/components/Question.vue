@@ -6,7 +6,7 @@
         type="button"
         class="btn btn-default"
         v-for="answer in shuffleAnswers(game.questions[game.currentQuestion].answers)"
-        v-on:click="game.checkCorrect(answer)">
+        v-on:click="game.handleAnswer(answer)">
         {{ answer }}
       </button>
     </div>
