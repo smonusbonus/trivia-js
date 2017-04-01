@@ -77,6 +77,22 @@ class Game {
     }
   }
 
+  checkCorrect(answer) {
+    const question = this.questions[this.currentQuestion];
+    const indexSolution = question.solution;
+    const indexGivenAnswer = question.answers.indexOf(answer);
+    this.answers.push(answer);
+
+    if (indexSolution === indexGivenAnswer) {
+      this.totalScore += 10 * (this.timeLeft / 1000);
+      this.correctAnswers.push(this.currentQuestion);
+      this.nextQuestion();
+    } else {
+      this.falseAnswers.push(this.currentQuestion);
+      this.nextQuestion();
+    }
+  }
+
   getPercentageCorrect() {
     return (this.correctAnswers.length / this.maxQuestions) * 100;
   }

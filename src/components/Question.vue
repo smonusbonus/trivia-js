@@ -6,7 +6,7 @@
         type="button"
         class="btn btn-default"
         v-for="answer in shuffleAnswers(game.questions[game.currentQuestion].answers)"
-        v-on:click="checkCorrect(answer)">
+        v-on:click="game.checkCorrect(answer)">
         {{ answer }}
       </button>
     </div>
@@ -22,21 +22,6 @@ export default {
   props: ['game'],
   data() {
     return {
-      checkCorrect: (answer) => {
-        const question = this.game.questions[this.game.currentQuestion];
-        const indexSolution = question.solution;
-        const indexGivenAnswer = question.answers.indexOf(answer);
-        this.game.answers.push(answer);
-
-        if (indexSolution === indexGivenAnswer) {
-          this.game.totalScore += 10 * (this.game.timeLeft / 1000);
-          this.game.correctAnswers.push(this.game.currentQuestion);
-          this.game.nextQuestion();
-        } else {
-          this.game.falseAnswers.push(this.game.currentQuestion);
-          this.game.nextQuestion();
-        }
-      },
       shuffleAnswers(answers) {
         return fisherYatesShuffle(answers);
       },
