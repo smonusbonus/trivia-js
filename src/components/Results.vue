@@ -24,7 +24,7 @@
           <i class="fa fa-check-square-o"></i>
           Check solutions
         </a>
-        <button type="button" class="btn btn-default" v-on:click="game.startGame()">
+        <button type="button" class="btn btn-default" v-on:click="restart()">
           Try again
         </button>
       </div>
@@ -60,7 +60,11 @@ export default {
   name: 'results',
   props: ['game'],
   data() {
-    return {};
+    return {
+      restart() {
+        this.$emit('restart');
+      },
+    };
   },
 };
 </script>

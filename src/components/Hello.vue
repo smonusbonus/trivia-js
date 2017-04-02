@@ -34,7 +34,7 @@
     <div class="game" v-if="game.hasStarted && !game.gameOver">
       <question class="question" :game="game"></question>
     </div>
-    <results :game="game"></results>
+    <results :game="game" v-on:restart="startGame()"></results>
     <div class="github" v-if="!game.hasStarted">
       <a href="https://github.com/smonusbonus/js-trivia" target="_blank">
         <i class="fa fa-github" aria-hidden="true"></i>
