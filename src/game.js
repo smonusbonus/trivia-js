@@ -12,7 +12,7 @@ class Game {
       totalScore: 0,
       timeLeft: 0,
       currentInterval: null,
-      ANSWER_TIME: 10000,
+      ANSWER_TIME: 20 * 1000,
       MAX_QUESTIONS: 10,
       POINTS_PER_QUESTION: 100,
     });
@@ -107,4 +107,3 @@ class Game {
   }
 }
 export default Game;
-
