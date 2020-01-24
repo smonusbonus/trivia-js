@@ -84,7 +84,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.2",
     "mocha": "^3.2.0",
-    "phantomjs-prebuilt": "^2.1.14",
+    "phantomjs-prebuilt": "^2.1.16",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "webpack-dev-middleware": "^1.10.0",
