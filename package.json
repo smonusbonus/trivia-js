@@ -73,7 +73,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "http-proxy-middleware": "^0.17.3",
-    "karma": "^1.4.1",
+    "karma": "^6.3.16",
     "karma-coverage": "^1.1.1",
     "karma-fixture": "^0.2.6",
     "karma-json-fixtures-preprocessor": "^0.0.6",
